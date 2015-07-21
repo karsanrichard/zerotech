@@ -1,6 +1,8 @@
+AddType text/cache-manifest .appcache
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /zerocorp
+    RewriteBase /zerotech
+
     #Removes access to the system folder by users.
     #Additionally this will allow you to create a System.php controller,
     #previously this would not have been possible.
@@ -29,5 +31,5 @@
     # Submitted by: ElliotHaughin
 
     ErrorDocument 404 /index.php
+    
 </IfModule> 
-
