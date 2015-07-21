@@ -170,7 +170,7 @@
                         <textarea class="form-control"></textarea>
                     </div>
                     
-                    <button class ="btn btn-success">Send</button>
+                    <button class ="btn btn-success">Send Message</button>
                 </form>
             </div>
         </div>
