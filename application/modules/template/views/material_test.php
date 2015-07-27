@@ -37,7 +37,7 @@
 
 				<span class="dropdown-toggle show-below-768" title="You have no items in your shopping cart.">
 
-				<span class="empty"><span class="price">$0.00</span></span>
+				<span class="empty"><span class="price">Ksh. 0.00</span></span>
 
 				</span>
 

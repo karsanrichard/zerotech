@@ -13,8 +13,8 @@ class Home extends MY_Controller{
     }
     
     function index(){
-//        echo "Testing the homepage";
-        $this->load->view('home');
+    	$data = '';
+        $this->template->call_frontend_template($data);
     }
     
     
