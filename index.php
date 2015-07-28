@@ -1,5 +1,6 @@
 <?php
 define('ASSETS_URL', 'http://zerocorp.app:8000/assets/');
+include_once './vendor/autoload.php';
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT

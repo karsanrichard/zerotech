@@ -13,7 +13,7 @@ class Home extends MY_Controller{
     }
     
     function index(){
-    	$data = '';
+    	$data['content_view'] = 'home/home';
         $this->template->call_frontend_template($data);
     }
     

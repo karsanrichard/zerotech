@@ -1,262 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- slider -->
+<div id="owl-example" class="owl-carousel" style = "height: 600px; overflow: hidden;">
+    <div>
+        <img src = "<?php echo ASSETS_URL; ?>images/slider/note4.jpg"/>
+    </div>
+    <div>
+        <img src = "<?php echo ASSETS_URL; ?>images/slider/imac.jpg" />
+    </div>
+    <div>
+        <img src = "<?php echo ASSETS_URL; ?>images/slider/screen.jpg" />
+    </div>
+    <div>
+        <img src = "<?php echo ASSETS_URL; ?>images/slider/asus.jpg" />
+    </div>
+</div>
+<!-- slider -->
 
-<head>
+<!-- latest products -->
+<div>
+    <center><h3>LATEST PRODUCTS</h3></center>
+    <div id="owl-demo">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>ZeroCorp Homepage</title>
-        <link rel="stylesheet" href= <?php echo base_url()."assets/homepage/css/bootstrap.min.css"; ?> >
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href= <?php echo base_url()."assets/homepage/css/shop-homepage.css"; ?> >
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-<style>
-    .top-margin{
-        margin-top:55px;
-    }
-    
-    .added-height{
-        height:10px;
-    }
-    </style>
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">ZeroCorp</a>
+        <div class="item">
+            <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<?php echo ASSETS_URL; ?>product_images/note4.jpg">
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Samsung Galaxy Note 4<i class="material-icons right">more_vert</i></span>
+            <p class = ""><span class = "left">Ksh. 25,000</span> <span class = "right"><a href="#"><i class = "ion ion-bag fa-2x"></i></a>&nbsp;&nbsp;<a href="#"><i class = "ion ion-ios-eye-outline fa-2x"></i></a></span></p>
             </div>
-            <!-- /.navbar-collapse -->
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Samsung Galaxy Note 4<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <center>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-bag left"></i>Add to Bag</a>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-ios-eye-outline left"></i>View More</a>
+            </center>
+            </div>
+            </div>
         </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row top-margin">
-
-            <div class="col-md-3">
-                <p class="lead">ZeroCorp | Homepage</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div>
+        <div class="item">
+            <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<?php echo ASSETS_URL; ?>product_images/imac.jpg">
             </div>
-
-            <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="<?php echo base_url().'assets/homepage/images/image1.jpg'; ?>" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="<?php echo base_url().'assets/homepage/images/image2.jpg'; ?>" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="<?php echo base_url().'assets/homepage/images/image3.jpg'; ?>" alt="">
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail  added-height">
-                            <img src="<?php echo base_url().'assets/homepage/images/image4.jpg'; ?>" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Ksh240</h4>
-                                <h4><a href="#">First Product</a>
-                                </h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="<?php echo base_url().'assets/homepage/images/image5.png'; ?>" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Ksh640</h4>
-                                <h4><a href="#">Second Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">12 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="<?php echo base_url().'assets/homepage/images/image6.jpg'; ?>" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Ksh740</h4>
-                                <h4><a href="#">Third Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="<?php echo base_url().'assets/homepage/images/image7.jpg'; ?>" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Ksh840</h4>
-                                <h4><a href="#">Fourth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">6 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="<?php echo base_url().'assets/homepage/images/image8.jpg'; ?>" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Ksh940</h4>
-                                <h4><a href="#">Fifth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">18 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Apple iMac<i class="material-icons right">more_vert</i></span>
+            <p class = ""><span class = "left">Ksh. 165,000</span> <span class = "right"><a href="#"><i class = "ion ion-bag fa-2x"></i></a>&nbsp;&nbsp;<a href="#"><i class = "ion ion-ios-eye-outline fa-2x"></i></a></span></p>
             </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Apple iMac<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <center>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-bag left"></i>Add to Bag</a>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-ios-eye-outline left"></i>View More</a>
+            </center>
+            </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<?php echo ASSETS_URL; ?>product_images/hp.jpg">
+            </div>
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">HP CPU<i class="material-icons right">more_vert</i></span>
+            <p class = ""><span class = "left">Ksh. 45,000</span> <span class = "right"><a href="#"><i class = "ion ion-bag fa-2x"></i></a>&nbsp;&nbsp;<a href="#"><i class = "ion ion-ios-eye-outline fa-2x"></i></a></span></p>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">HP CPU<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <center>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-bag left"></i>Add to Bag</a>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-ios-eye-outline left"></i>View More</a>
+            </center>
+            </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<?php echo ASSETS_URL; ?>product_images/skulls.jpg">
+            </div>
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Skull Candy Earphones<i class="material-icons right">more_vert</i></span>
+            <p class = ""><span class = "left">Ksh. 1,000</span> <span class = "right"><a href="#"><i class = "ion ion-bag fa-2x"></i></a>&nbsp;&nbsp;<a href="#"><i class = "ion ion-ios-eye-outline fa-2x"></i></a></span></p>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Skull Candy Earphones<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <center>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-bag left"></i>Add to Bag</a>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-ios-eye-outline left"></i>View More</a>
+            </center>
+            </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<?php echo ASSETS_URL; ?>product_images/lenovo-yoga.jpg">
+            </div>
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Lenovo Yoga<i class="material-icons right">more_vert</i></span>
+            <p class = ""><span class = "left">Ksh. 35,000</span> <span class = "right"><a href="#"><i class = "ion ion-bag fa-2x"></i></a>&nbsp;&nbsp;<a href="#"><i class = "ion ion-ios-eye-outline fa-2x"></i></a></span></p>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Lenovo Yoga<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <center>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-bag left"></i>Add to Bag</a>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-ios-eye-outline left"></i>View More</a>
+            </center>
+            </div>
+            </div>
+        </div>
 
+        <div class="item">
+            <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<?php echo ASSETS_URL; ?>product_images/beats.jpg">
+            </div>
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Beats bydre Headphones<i class="material-icons right">more_vert</i></span>
+            <p class = ""><span class = "left">Ksh. 5000</span> <span class = "right"><a href="#"><i class = "ion ion-bag fa-2x"></i></a>&nbsp;&nbsp;<a href="#"><i class = "ion ion-ios-eye-outline fa-2x"></i></a></span></p>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Beats bydre Headphones<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <center>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-bag left"></i>Add to Bag</a>
+                <a class="item-anchor waves-effect waves-light btn"><i class="ion ion-ios-eye-outline left"></i>View More</a>
+            </center>
+            </div>
+            </div>
         </div>
 
     </div>
-    <!-- /.container -->
+</div>
+<!-- latest products -->
 
-    <div class="container">
+<!-- maps -->
+<center><h4>Locate Us</h4></center>
+<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Strathmore+University,+Nairobi+West,+Nairobi,+Kenya&key=AIzaSyCREwperCbLUc1tHPdMZS7eqVn0YZmwUf8" allowfullscreen></iframe>
+<!-- maps -->
 
-        <hr>
+<!-- brands -->
+<center><h4>Our Brands</h4></center>
+<div class = "container">
+<div id="brands-slider">
+  
+    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/samsung.png" alt="Owl Image"></div>
+    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/apple.png" alt="Owl Image"></div>
+    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/hp.png" alt="Owl Image"></div>
+    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/skull.jpg" alt="Owl Image"></div>
+    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/microsoft.png" alt="Owl Image"></div>
+    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/beats.png" alt="Owl Image"></div>
+    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/windows.png" alt="Owl Image"></div>
+    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/acer.png" alt="Owl Image"></div>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; ZeroCorp 2015</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src=<?php echo base_url()."assets/homepage/js/jquery.js"; ?>></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src=<?php echo base_url()."assets/homepage/js/bootstrap.min.js"; ?>></script>
-    
-
-</body>
-
-</html>
+</div>
+</div>
+<!-- brands -->
