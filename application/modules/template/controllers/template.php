@@ -12,8 +12,8 @@ class Template extends MY_Controller{
         parent::__construct();
     }
     
-    function call_frontend_template($data = NULL){
-        $this->load->view('template/frontend', $data);
+    function call_frontend_template($data = NULL, $type = 'material'){
+        (!isset($type)) ? $this->load->view('template/frontend', $data) : $this->load->view('template/material_test', $data);
     }
     
     function call_backend_template($data = NULL){

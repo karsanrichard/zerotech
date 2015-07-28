@@ -13,17 +13,10 @@ class Home extends MY_Controller{
     }
     
     function index(){
-//        echo "Testing the homepage";
-        $this->load->view('home_page');
+    	$data['content_view'] = 'home/home';
+        $this->template->call_frontend_template($data);
     }
     
-    function emailing()
-    {
-    	$email = $this->input->post('email');
-    	$message = $this->input->post('message');
-    	
-    	$send_email = $this->send_email($email,$message);
-   	}
     
 }
 
