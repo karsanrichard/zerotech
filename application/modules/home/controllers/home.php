@@ -14,9 +14,16 @@ class Home extends MY_Controller{
     
     function index(){
 //        echo "Testing the homepage";
-        $this->load->view('home');
+        $this->load->view('home_page');
     }
     
+    function emailing()
+    {
+    	$email = $this->input->post('email');
+    	$message = $this->input->post('message');
+    	
+    	$send_email = $this->send_email($email,$message);
+   	}
     
 }
 
