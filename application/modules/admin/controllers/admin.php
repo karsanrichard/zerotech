@@ -11,5 +11,6 @@ class Admin extends MY_Controller{
         $data['content_view'] = 'admin/dashboard';
         $this->template->call_backend_template($data);
     }
+
 }
 
