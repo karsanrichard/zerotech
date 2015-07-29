@@ -10,6 +10,7 @@ class Home extends MY_Controller{
     
     function __construct() {
         parent::__construct();
+        $this->session->set_userdata(['user_id' => 1]);
     }
     
     function index(){
