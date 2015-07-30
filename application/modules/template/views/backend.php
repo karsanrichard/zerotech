@@ -10,17 +10,17 @@
 
     <title>INSPINIA | Dashboard</title>
 
-    <link href="<?php echo base_url();?>assets/backend/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url();?>assets/backend/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Morris -->
-    <link href="<?php echo base_url();?>assets/backend/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
 
     <!-- Gritter -->
-    <link href="<?php echo base_url();?>assets/backend/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
 
-    <link href="<?php echo base_url();?>assets/backend/css/animate.css" rel="stylesheet">
-    <link href="<?php echo base_url();?>assets/backend/css/style.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/css/animate.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +31,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="<?php echo base_url();?>assets/backend/img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/profile_small.jpg" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
@@ -328,43 +328,43 @@
     </div>
 
     <!-- Mainly scripts -->
-    <script src="<?php echo base_url();?>assets/backend/js/jquery-2.1.1.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="<?php echo ASSETS_URL;?>backend/js/jquery-2.1.1.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/bootstrap.min.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Flot -->
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/flot/jquery.flot.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.pie.js"></script>
 
     <!-- Peity -->
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/demo/peity-demo.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/demo/peity-demo.js"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="<?php echo base_url();?>assets/backend/js/inspinia.js"></script>
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/pace/pace.min.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/inspinia.js"></script>
+    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/pace/pace.min.js"></script>
 
     <!-- jQuery UI -->
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- GITTER -->
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/gritter/jquery.gritter.min.js"></script>
+    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/gritter/jquery.gritter.min.js"></script>
 
     <!-- EayPIE -->
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/easypiechart/jquery.easypiechart.js"></script>
+    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/easypiechart/jquery.easypiechart.js"></script>
 
     <!-- Sparkline -->
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
     <!-- Sparkline demo data  -->
-    <script src="<?php echo base_url();?>assets/backend/js/demo/sparkline-demo.js"></script>
+    <script src="<?php echo ASSETS_URL;?>backend/js/demo/sparkline-demo.js"></script>
 
     <!-- ChartJS-->
-    <script src="<?php echo base_url();?>assets/backend/js/plugins/chartJs/Chart.min.js"></script>
+    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/chartJs/Chart.min.js"></script>
 
 
 
