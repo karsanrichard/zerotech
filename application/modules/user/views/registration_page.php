@@ -54,7 +54,7 @@
 			</div>
 		</div>
 
-		<!-- <div class="g-recaptcha" data-sitekey="6LeraAoTAAAAAKdEXbPwFOinecD9f0bB4m-q421e"></div> -->
+		<div class="g-recaptcha" data-sitekey="6LeraAoTAAAAAKdEXbPwFOinecD9f0bB4m-q421e"></div>
 		<div class = "row">
 			<div class = "col s12">
 				<button class = "btn waves-effect waves-light right">Complete Registration</button>
