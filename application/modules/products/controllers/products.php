@@ -8,21 +8,28 @@ class Products extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
+
+        $this->load->module('categories');
 		$this->load->model('products_model');
 	}
 
-	function get_all_products()
+	function add()
 	{
-		$products = $this->products_model->get_all_products();
-
-		echo "<pre>";print_r($products);
+		
 	}
 
-	function get_product($id=0)
+	function get_parent_categories()
 	{
-		$product = $this->products_model->get_product($id);
+		$parent_cat = $this->categories->get_parent_categories();
 
-		echo "<pre>";print_r($product);
+		echo "<pre>";print_r($parent_cat);
+	}
+
+	function get_child_categories($parent_id=100)
+	{
+		$child_cat = $this->categories->get_sub_categories($parent_id);
+
+		echo "<pre>";print_r($child_cat);
 	}
 }
 ?>
