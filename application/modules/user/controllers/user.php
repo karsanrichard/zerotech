@@ -10,6 +10,10 @@ class User extends MY_Controller
 		]);
 		$this->load->model('user/M_user');
 		parent::__construct();
+		if($this->session->userdata('is_logged_in'))
+		{
+			redirect('home');
+		}
 	}
 
 	public function login()

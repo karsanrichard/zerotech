@@ -17,28 +17,27 @@
 </head>
 <body>
 	<div class = "top-nav">
-		<div class = "container">
+		<div class = "">
 			<ul class = "hide-on-med-and-down">
 				<li class = ""><a href="#">MY ACCOUNT</a></li>
 				<li><a href = "#">MY WISHLIST (0)</a></li>
 				<li><a href = "#">CHECKOUT</a></li>
-				<li><a href = "<?php echo base_url(); ?>user/login">LOGIN OR REGISTER</a></li>
+				<li><?php if(!$this->session->userdata('is_logged_in')){?><a href = "<?php echo base_url(); ?>user/login">LOGIN OR REGISTER</a><?php } else { ?>Welcome back, <a href = "<?php echo base_url(); ?>user/user_account/<?php echo $this->session->userdata('customer_id');?>">LOGOUT<!-- <?php echo $this->session->userdata('customer_id'); ?> --></a><?php } ?></li>
 			</ul>
 
 			<div class = "top-nav-right">
 				<div id="mini-cart" class="dropdown">
 
 				<span class="dropdown-toggle hide-below-768" title="You have no items in your shopping cart.">
-
-				<span class="my-bag">MY BAG: </span>
-				<span class="empty">0 ITEM(S)</span>
-
+					<span class="my-bag">MY BAG: </span>
+					<a class="summary" href="javascript:void(0)" title="View all items in your shopping cart"><span class="amount"><span>1 ITEM(S)</span></span></a>
 				</span>
-
-				<span class="dropdown-toggle show-below-768" title="You have no items in your shopping cart.">
-
-				<span class="empty"><span class="price">Ksh. 0.00</span></span>
-
+				<span class="dropdown-toggle show-below-768" title="View Cart">
+					<a class="summary" href="javascript:void(0)" title="View all items in your shopping cart">
+					<span class="subtotal">
+						<span class="price">$162.00</span>
+					</span>
+					</a>
 				</span>
 
 				<div class="dropdown-menu" style="display: none;">

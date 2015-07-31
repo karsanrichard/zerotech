@@ -13,6 +13,7 @@ div.top-nav
     font-size: 11px;
     font-family: 'Merriweather Sans', sans-serif;
     line-height: 27px;
+    overflow: hidden;
 }
 nav
 {
@@ -232,4 +233,15 @@ div.small-container
 form.login-form
 {
 	border-top: 1px solid beige;
+}
+
+#mini-cart .dropdown-toggle {
+    margin-right: -16px;
+    padding: 0 16px;
+    border: 1px solid transparent;
+    border-width: 1px 1px 0;
+}
+
+.dropdown-toggle span {
+    color: #7e7e7e;
 }
