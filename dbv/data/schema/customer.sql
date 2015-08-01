@@ -1,12 +1,10 @@
 CREATE TABLE `customer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `other_names` varchar(255) DEFAULT NULL,
-  `email_address` varchar(200) NOT NULL,
-  `active` int(11) NOT NULL DEFAULT '0',
-  `active_hash` varchar(64) DEFAULT NULL,
-  `created_on` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `password` text NOT NULL,
-  PRIMARY KEY (`id`)
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `f_name` varchar(150) NOT NULL,
+  `s_name` varchar(150) NOT NULL,
+  `phone_no` varchar(150) NOT NULL,
+  `physical_address` varchar(150) NOT NULL,
+  `postal_address` varchar(150) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
