@@ -310,3 +310,18 @@ a.cd-nav-item
 {
     display: block;
 }
+
+.cd-member-bio {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 270px;
+    height: 100%;
+    overflow-y: auto;
+    /* smooth scrolling on mobile phones and tablets */
+    -webkit-overflow-scrolling: touch;
+    /* this how we move the author bio section off the canvas */
+    transform: translateX(270px);
+    transition-property: transform;
+    transition-duration: 0.3s;
+}

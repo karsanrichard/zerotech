@@ -13,7 +13,9 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>custom/custom.css">
 	<link rel="stylesheet" href="<?php echo ASSETS_URL; ?>owl.carousel/owl-carousel/owl.carousel.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>owl.carousel/owl-carousel/owl.theme.css">
+	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<script src="<?php echo ASSETS_URL; ?>custom/modernizr.js" type="text/javascript"></script>
+	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -102,7 +104,11 @@
 		<!-- footer -->
 		<div class="cd-overlay"></div>
 	</main>
-	
+	<?php
+		if (isset($outside_main)) {
+			$this->load->view($outside_main);
+		}
+	?>
 	<nav class="cd-nav">
 		<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
 			<li><a href="<?php echo base_url(); ?>">Home</a></li>
@@ -313,7 +319,7 @@
 				</ul>
 			</li>
 	 
-			<li><a href="#0">About Us</a></li>
+			<li><a href="<?php echo base_url(); ?>about">About Us</a></li>
 
 			<li><a href="#0">Contact Us</a></li>
 		</ul> <!-- primary-nav -->
@@ -324,8 +330,6 @@
 		</form>
 	</div>
 
-	
-	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 	<script src="<?php echo ASSETS_URL; ?>owl.carousel/owl-carousel/owl.carousel.js"></script>
