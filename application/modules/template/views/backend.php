@@ -19,6 +19,7 @@
 
     <link href="<?php echo ASSETS_URL;?>backend/css/animate.css" rel="stylesheet">
     <link href="<?php echo ASSETS_URL;?>backend/css/style.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/css/plugins/chosen/chosen.css" rel="stylesheet">
     <link href="<?php echo ASSETS_URL;?>backend/css/plugins/dropzone/basic.css" rel="stylesheet">
     <link href="<?php echo ASSETS_URL;?>backend/css/plugins/dropzone/dropzone.css" rel="stylesheet">
     <script src="<?php echo ASSETS_URL;?>backend/js/jquery-2.1.1.js"></script>
@@ -662,6 +663,8 @@
     <!-- Sparkline demo data  -->
     <script src="<?php echo ASSETS_URL;?>backend/js/demo/sparkline-demo.js"></script>
 
+    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/chosen/chosen.jquery.js"></script>
+
     <!-- ChartJS-->
     <script src="<?php echo ASSETS_URL;?>backend/js/plugins/chartJs/Chart.min.js"></script>
 
@@ -760,6 +763,17 @@
                 animateRotate: true,
                 animateScale: false
             };
+
+            var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"95%"}
+                }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
 
             var ctx = document.getElementById("doughnutChart").getContext("2d");
             var DoughnutChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);

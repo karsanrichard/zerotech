@@ -4,14 +4,15 @@
 */
 class Products extends MY_Controller
 {
-	
+	var $brands_drop;
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('products_model');
+		
 	}
 
-	public function index($access_level = NULL){
+	public function index($access_level = 'admin'){
 		//SESSION DATA SELECTION FOR ACCESS LEVEL HERE. EQUATE TO ABOVE PARAM
 		switch ($access_level) {
 			case 'admin':
@@ -27,6 +28,31 @@ class Products extends MY_Controller
 				// MEMBER
 				break;
 		}
+
+    }
+
+    function add()
+    {
+    	$data['page_heading'] = 'Products | Add Product';
+    	$data['content_view'] = 'products/add_products';
+    	$data['catetgories'] = $this->parent_categories_dropdown();
+    	$data['brands'] = $this->get_brands();
+
+    	$this->template->call_backend_template($data);
+    }
+
+    function add_products()
+    {
+    	$name = $this->input->post('product_name');
+    	$brand = $this->input->post('brand');
+    	$category = $this->input->post('sub_cat');
+    	$color = $this->input->post('color');
+    	$price = $this->input->post('price');
+    	$description = $this->input->post('description');
+
+    	$insert = $this->products_model->add_product($name,$brand,$category,$color,$price,$description);
+
+    	redirect('products');
 
     }
 
@@ -94,6 +120,29 @@ class Products extends MY_Controller
 		echo "<pre>";print_r($product);
 	}
 
+	function get_brands()
+	{
+		$brands_data = $this->products_model->get_brands();
+
+		$this->brands_drop .= '<select class="chosen-select form-control" style="width:350px;" tabindex="2" name="brand" id="brand">';
+		$this->brands_drop .= '<option value="" selected="true" disabled="true">**Select a Brand**</option>';
+		foreach ($brands_data as $key => $value) {
+			$this->brands_drop .= '<option value="'.$value["brand_id"].'">'.$value["brand_name"].'</option>';
+		}
+		$this->brands_drop .= '</select>';
+
+		return $this->brands_drop;
+	}
+
+
+	function ajax_get_sub_categories($parent_id)
+	{
+		$sub_categories = $this->categories->get_sub_categories($parent_id);
+
+		$sub_categories = json_encode($sub_categories,JSON_PRETTY_PRINT);
+
+		echo $sub_categories;
+	}
 
 }
 ?>

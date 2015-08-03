@@ -29,6 +29,53 @@
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <!-- <h5 class="m-b-md">Server status Q12</h5> -->
+                    <h2 class="text-navy">
+                        <i class="fa fa-plus fa-rotate-270"></i><a href="<?php echo base_url();?>products/add" class="text-navy"> Add Product</a>
+                    </h2>
+                    <!-- <small>Last down 42 days ago</small> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content ">
+                    <!-- <h5 class="m-b-md">Server status Q13</h5> -->
+                    <h2 class="text-navy">
+                        <i class="fa fa-play fa-rotate-270"></i> Action
+                    </h2>
+                    <!-- <small>Last down 42 days ago</small> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <!-- <h5 class="m-b-md">Server status Q42</h5> -->
+                    <h2 class="text-danger">
+                        <i class="fa fa-play fa-rotate-90"></i> Action
+                    </h2>
+                    <!-- <small>Server down since 4 days</small> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <!-- <h5 class="m-b-md">Server status Q43</h5> -->
+                    <h2 class="text-danger">
+                        <i class="fa fa-play fa-rotate-90"></i> Action
+                    </h2>
+                    <!-- <small>Server down since 4:32 pm.</small> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
