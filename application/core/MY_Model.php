@@ -11,4 +11,13 @@ class MY_Model extends CI_Model{
     function __construct(){
         parent::__construct();
     }
+
+    function get_brands()
+    {
+    	$sql = "SELECT * FROM `brand`";
+
+    	$result = $this->db->query($sql);
+
+    	return $result->result_array();
+    }
 }

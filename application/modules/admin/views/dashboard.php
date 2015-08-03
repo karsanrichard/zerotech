@@ -85,7 +85,7 @@
 
             </div>
 
-<div class="row">
+            <div class="row">
             <div class="col-lg-12">
                 <div class="wrapper wrapper-content">
                         <div class="row">
@@ -129,7 +129,7 @@
                                 </div>
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>Read below comments and tweets</h5>
+                                    <h5>Read below comments</h5>
                                     <div class="ibox-tools">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -196,7 +196,7 @@
 
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="<?php echo base_url();?>assets/backend/img/profile.jpg">
+                                                        <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/profile.jpg">
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">5m ago</small>
@@ -208,7 +208,7 @@
 
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="<?php echo base_url();?>assets/backend/img/a2.jpg">
+                                                        <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/a2.jpg">
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">2h ago</small>
@@ -218,7 +218,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="<?php echo base_url();?>assets/backend/img/a3.jpg">
+                                                        <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/a3.jpg">
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">2h ago</small>
@@ -228,7 +228,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="<?php echo base_url();?>assets/backend/img/a4.jpg">
+                                                        <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/a4.jpg">
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right text-navy">5h ago</small>
@@ -242,7 +242,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="<?php echo base_url();?>assets/backend/img/a5.jpg">
+                                                        <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/a5.jpg">
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">2h ago</small>
@@ -259,7 +259,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="img/profile.jpg">
+                                                        <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/profile.jpg">
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">23h ago</small>
@@ -269,7 +269,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="<?php echo base_url();?>assets/backend/img/a7.jpg">
+                                                        <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/a7.jpg">
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">46h ago</small>
