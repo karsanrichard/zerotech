@@ -1,3 +1,29 @@
+<style type="text/css">
+    #brands-slider
+    {
+        /*height: 150px !important;*/
+        /*overflow: hidden;*/
+    }
+
+    .owl-carousel .owl-item .brand-item
+    {
+        height: 150px;
+    }
+    .brand-item img
+    {
+        vertical-align: middle;
+        max-height: 150px;
+    }
+    .helper {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    .item{
+        margin-right: 20px;
+    }
+</style>
 <!-- slider -->
 <div id="owl-example" class="owl-carousel" style = "height: 600px; overflow: hidden;">
     <div>
@@ -149,15 +175,19 @@
 <center><h4>Our Brands</h4></center>
 <div class = "container">
 <div id="brands-slider">
-  
-    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/samsung.png" alt="Owl Image"></div>
-    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/apple.png" alt="Owl Image"></div>
-    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/hp.png" alt="Owl Image"></div>
-    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/skull.jpg" alt="Owl Image"></div>
-    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/microsoft.png" alt="Owl Image"></div>
-    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/beats.png" alt="Owl Image"></div>
-    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/windows.png" alt="Owl Image"></div>
-    <div class="item"><img src="<?php echo ASSETS_URL; ?>brands/acer.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/android.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/samsung.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/sony.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/nokia.jpg" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/htc.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/apple.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/hp.gif" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/skulls.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/microsoft.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/beats.jpg" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/win8.jpg" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/acer.png" alt="Owl Image"></div>
+    <div class="item brand-item"><span class="helper"></span><img src="<?php echo ASSETS_URL; ?>brands/xiaomi.png" alt="Owl Image"></div>
 
 </div>
 </div>

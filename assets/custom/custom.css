@@ -19,7 +19,7 @@ nav
 {
 	background-color: #fff !important;
 	height: 100px;
-	line-height: 100px;
+	line-height: 120px;
 }
 
 nav ul
@@ -324,4 +324,9 @@ a.cd-nav-item
     transform: translateX(270px);
     transition-property: transform;
     transition-duration: 0.3s;
+}
+
+#result
+{
+    text-align: center;
 }

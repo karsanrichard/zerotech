@@ -10,11 +10,16 @@ class Products_model extends MY_Model
 		parent::__construct();
 	}
 
-	function add_product()
+	function add_product($name,$brand,$category,$color,$price,$description)
 	{
-		$sql = "";
+		$sql = "INSERT INTO `products`
+					(`product_name`,`description`,`price`,`color`,`brand_id`,`category_id`)
+				VALUES
+					('$name','$description','$price','$color','$brand','$category')";
 
 		$insert = $this->db->query($sql);
+
+		return $insert;
 	}
 
 	function get_all_products()

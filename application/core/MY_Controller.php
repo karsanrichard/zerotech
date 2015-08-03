@@ -10,11 +10,13 @@ use RandomLib\Factory as RandomLib;
 
 class MY_Controller extends MX_Controller{
     protected $RandomLib;
+    var $category_drop;
     function __construct() {
         parent::__construct();
         $factory = new RandomLib;
         $this->RandomLib = $factory->getMediumStrengthGenerator();
         $this->load->module('template');
+        $this->load->module('categories');
     }
 
     	function send_email($email, $message)
@@ -50,4 +52,21 @@ class MY_Controller extends MX_Controller{
 				show_error($this->email->print_debugger());
 			}
 	}
+
+	function parent_categories_dropdown()
+	{
+		$categories_data = $this->categories->get_parent_categories();
+
+		$this->category_drop .= '<select class="chosen-select form-control" style="width:350px;" tabindex="2" name="category" id="category">';
+		$this->category_drop .= '<option value="" selected="true" disabled="true">**Select a Category**</option>';
+		foreach ($categories_data as $key => $value) {
+			$this->category_drop .= '<option value="'.$value["category_id"].'">'.$value["category_name"].'</option>';
+		}
+		$this->category_drop .= '</select>';
+
+		return $this->category_drop;
+
+	}
+
+
 }

@@ -24,12 +24,7 @@
                         <a href="<?php echo base_url();?>admin"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Products</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li><a href="<?php echo base_url();?>products/add">Add Products</a></li>
-                            <li><a href="ecommerce_product_list.html">Products list</a></li>
-                            <li><a href="ecommerce_product.html">Product edit</a></li>
-                        </ul>
+                        <a href="<?php echo base_url();?>products">Products</a>
                     </li>
                     
                 </ul>

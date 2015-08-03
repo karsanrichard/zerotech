@@ -21,7 +21,6 @@
 		</div>
 	</div>
 </div>
-<div class = "divider"></div>
 <div class="section white">
 	<div class = "container row">
 		<div class = "col s6">
@@ -36,7 +35,6 @@
 		</div>
 	</div>
 
-	<div class = "container"><div class = "divider" style="margin: 15px 0;"></div></div>
 
 	<div class = "container row">
 		<div class = "col s6" style="padding: 35px 0;">

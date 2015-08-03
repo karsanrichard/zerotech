@@ -1,15 +1,15 @@
 <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-9">
-                    <h2>Carousel</h2>
+                    <h2>Products</h2>
                     <ol class="breadcrumb">
                         <li>
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            UI Elements
+                            Products
                         </li>
                         <li class="active">
-                            <strong>Carousel</strong>
+                            <strong>Add Products</strong>
                         </li>
                     </ol>
                 </div>
@@ -19,138 +19,82 @@
 
         <div class="wrapper wrapper-content">
             <div class="row">
-                <div class="col-lg-5">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Animation without caption</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="carousel slide" id="carousel1">
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img alt="image" class="img-responsive" src="<?php echo ASSETS_URL.'backend/img/p_big3.jpg'; ?>">
-                                    </div>
-                                    <div class="item">
-                                        <img alt="image"  class="img-responsive" src="<?php echo ASSETS_URL.'backend/img/p_big1.jpg'; ?>">
-                                    </div>
-                                    <div class="item ">
-                                        <img alt="image" class="img-responsive" src="<?php echo ASSETS_URL.'backend/img/p_big2.jpg'; ?>">
-                                    </div>
-
-                                </div>
-                                <a data-slide="prev" href="#carousel1" class="left carousel-control">
-                                    <span class="icon-prev"></span>
-                                </a>
-                                <a data-slide="next" href="#carousel1" class="right carousel-control">
-                                    <span class="icon-next"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Big gallery carousel</h5>
+                            <h5>Add new Products below.</small></h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <div class="carousel slide" id="carousel3">
-                                <div class="carousel-inner">
-                                    <div class="item gallery active left">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <img alt="image" class="img-responsive" src="img/p_big1.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image" class="img-responsive" src="img/p_big2.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive"  src="img/p_big3.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive" src="img/p_big1.jpg">
-                                            </div>
-                                        </div>
+                            <form method="post" class="form-horizontal" action="<?php echo base_url();?>products/add_products">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Product Name: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="product_name" id="product_name">
                                     </div>
-                                    <div class="item gallery next left">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive" src="img/p_big3.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive" src="img/p_big1.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive"  src="img/p_big2.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive" src="img/p_big1.jpg">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item gallery">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive" src="img/p_big2.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive" src="img/p_big3.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image"  class="img-responsive"  src="img/p_big1.jpg">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img alt="image" class="img-responsive" src="img/p_big2.jpg">
-                                            </div>
-                                        </div>
+                                    <label class="col-sm-2 control-label">Brand: </label>
+                                    <div class="col-sm-4">
+                                        <?php
+                                            echo $brands;
+                                        ?>
+                                        <!-- <input type="text" class="form-control"> -->
                                     </div>
                                 </div>
-                                <a data-slide="prev" href="#carousel3" class="left carousel-control">
-                                    <span class="icon-prev"></span>
-                                </a>
-                                <a data-slide="next" href="#carousel3" class="right carousel-control">
-                                    <span class="icon-next"></span>
-                                </a>
-                            </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Category: </label>
+                                    <div class="col-sm-4">
+                                        <?php
+                                            echo $catetgories;
+                                        ?>
+                                        <!-- <input type="text" class="form-control"> -->
+                                    </div>
+                                    <label class="col-sm-2 control-label">Sub Categories: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" disabled="true" value="6" name="sub_cat" id="sub_cat">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Color: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control"  name="color" id="color">
+                                    </div>
+                                    <label class="col-sm-2 control-label">Price: </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="price" id="price">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Description: </label>
+                                    <div class="col-sm-10">
+                                        <textarea type="text" class="form-control" rows="10" name="description" id="description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <button class="btn btn-white" type="submit">Cancel</button>
+                                        <button class="btn btn-primary" type="submit">Save changes</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+        $(document).ready(fuction(){
+            $('#category').change(function(){
+                id = $(this).val;
+
+                $.get('<?php echo base_url();?>categories/get_sub_categories/'+id, function(data) {
+                    obj = jQuery.parseJSON(data);
+
+                    $.each();
+                });
+            });
+        });
+        </script>
