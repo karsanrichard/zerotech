@@ -339,7 +339,6 @@
     <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.spline.js"></script>
     <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.resize.js"></script>
     <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/dataTables/jquery.dataTables.js"></script>
 
     <!-- Peity -->
     <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/peity/jquery.peity.min.js"></script>
@@ -367,7 +366,6 @@
     <!-- ChartJS-->
     <script src="<?php echo ASSETS_URL;?>backend/js/plugins/chartJs/Chart.min.js"></script>
 
-    <script src="<?php echo ASSETS_URL;?>backend/js/custom.js"></script>
 
 
     <script>
@@ -516,6 +514,17 @@
 
         });
     </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-4625583-2', 'webapplayers.com');
+        ga('send', 'pageview');
+
+    </script>
 </body>
 
+<!-- Mirrored from webapplayers.com/inspinia_admin-v1.6/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Dec 2014 11:59:19 GMT -->
 </html>
