@@ -14,13 +14,28 @@ class M_user extends MY_Model
 		return $query;
 	}
 
-	function get_active_user($email)
+	function get_inactive_user($email)
 	{
 		$query = $this->db->get_where(
 			'customer',
 			[
 				'email_address' => $email,
 				'active' => 0
+			]
+		);
+
+		$result = $query->row();
+
+		return $result;
+	}
+
+	function get_active_user($email)
+	{
+		$query = $this->db->get_where(
+			'customer',
+			[
+				'email_address' => $email,
+				'active' => 1
 			]
 		);
 
