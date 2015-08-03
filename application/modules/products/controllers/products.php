@@ -30,6 +30,25 @@ class Products extends MY_Controller
 
     }
 
+    function view_products($access_level = NULL){
+    	//SESSION DATA SELECTION FOR ACCESS LEVEL HERE. EQUATE TO ABOVE PARAM
+		switch ($access_level) {
+			case 'admin':
+		    	$data['page_heading'] = 'Products';
+		    	$data['content_view'] = 'products/products_v_all';
+		    	$data['product_data'] = $this->products_model->get_products();
+		    	// echo "<pre>";print_r($data['product_data']);
+		    	$this->template->call_backend_template($data);
+    		case 'member':
+    			// redirect("home");
+				break;
+			
+			default:
+				// MEMBER
+				break;
+		}
+    }
+
     function edit_product($product_id){
     	$product_details = $this->products_model->get_products($product_id);
     	$categories = $this->products_model->get_categories();
