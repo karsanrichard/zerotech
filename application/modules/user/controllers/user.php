@@ -10,6 +10,10 @@ class User extends MY_Controller
 		]);
 		$this->load->model('user/M_user');
 		parent::__construct();
+		if($this->session->userdata('is_logged_in'))
+		{
+			redirect('home');
+		}
 	}
 
 	public function login()
@@ -57,7 +61,7 @@ class User extends MY_Controller
 	function activate($email, $identifier)
 	{
 		$hashedIdentifier = $this->hash->hash($identifier);
-		$user = $this->M_user->get_active_user($email);
+		$user = $this->M_user->get_inactive_user($email);
 
 		if(!$user || $this->hash->hashCheck($user->active_hash, $hashedIdentifier))
 		{
@@ -79,5 +83,24 @@ class User extends MY_Controller
 	{
 		$data['content_view'] = 'user/after_registration';
 		$this->template->call_frontend_template($data);
+	}
+
+	function authenticate()
+	{
+		$user = $this->M_user->get_active_user($this->input->post('email_address'));
+
+		if($user && $this->hash->passwordCheck($this->input->post('password'), $user->password))
+		{
+			$this->session->set_userdata([
+				'customer_id' => $user->id,
+				'is_logged_in' => TRUE
+			]);
+			redirect(base_url() . 'home');
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'Username or password is wrong');
+			redirect(base_url() . 'user/login');
+		}
 	}
 }

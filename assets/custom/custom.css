@@ -13,6 +13,7 @@ div.top-nav
     font-size: 11px;
     font-family: 'Merriweather Sans', sans-serif;
     line-height: 27px;
+    overflow: hidden;
 }
 nav
 {
@@ -44,17 +45,17 @@ nav ul li.active
 	font-weight: bold;
 	background-color: transparent;
 }
-nav .brand-logo
+header .cd-logo
 {
 	width: 35%;
 	color: #111;
 	/*overflow: hidden;*/
 }
 
-nav .brand-logo img
+header .cd-logo img
 {
 	position: absolute;
-	width: 160px;
+	width: 100px;
 }
 nav ul a
 {
@@ -232,4 +233,95 @@ div.small-container
 form.login-form
 {
 	border-top: 1px solid beige;
+}
+
+#mini-cart .dropdown-toggle {
+    margin-right: -16px;
+    padding: 0 16px;
+    border: 1px solid transparent;
+    border-width: 1px 1px 0;
+}
+
+.dropdown-toggle span {
+    color: #7e7e7e;
+}
+
+nav ul li
+{
+    transition: none;
+    float: none;
+}
+
+nav ul li a
+{
+    font-size: 16px;
+}
+
+.cd-main-content
+{
+    background-color: #ffffff;
+}
+
+@media only screen and (min-width: 1170px)
+.cd-primary-nav .cd-nav-gallery .cd-nav-item img{
+    position: static;
+    margin-top: 0;
+    height: auto;
+    width: 100%;
+    margin-bottom: .6em;
+}
+
+.cd-nav-item h3
+{
+    display: block;
+    font-size: 90%;
+    width: 110%;
+    color: #333;
+}
+a.cd-nav-item
+{
+    min-height: 220px !important;
+}
+
+.cd-nav-item-name
+{
+    float: left;
+}
+
+.cd-nav-item-price
+{
+    float: right;
+}
+
+.offer-label
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: #03A9F4;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    line-height: 70px;
+    right: 0;
+    top: -30px;
+}
+.offer-label p
+{
+    display: block;
+}
+
+.cd-member-bio {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 270px;
+    height: 100%;
+    overflow-y: auto;
+    /* smooth scrolling on mobile phones and tablets */
+    -webkit-overflow-scrolling: touch;
+    /* this how we move the author bio section off the canvas */
+    transform: translateX(270px);
+    transition-property: transform;
+    transition-duration: 0.3s;
 }

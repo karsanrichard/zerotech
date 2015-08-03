@@ -8,7 +8,7 @@
 				<form method = "POST" action = "<?php echo base_url(); ?>user/authenticate" class = "login-form">
 					<div class = "row">
 						<div class="input-field col s12">
-							<input id="email_address" type="email" class="validate" name = "email_address">
+							<input id="email_address" type="email" class="validate" name = "email_address" value = "<?php if($this->input->post('email_address')){echo $this->input->post('email_address'); }?>">
 							<label for="email_address">Email Address</label>
 						</div>
 					</div>
@@ -24,12 +24,13 @@
 							<a href="#" class = "s6">Forgot Password?</a>
 						</div>
 					</div>
-					<p><input type="checkbox" id="test6" /><label for="test6">Remember me</label></p>
+					<p><input type="checkbox" id="test6" name = "remember"/><label for="test6">Remember me</label></p>
 					<div class = "row">
 						<div class="input-field col s12">
-							<button class="btn waves-effect waves-light" type="submit" name="action"> Login</button>
+							<button class="btn waves-effect waves-light" type="submit"> Login</button>
 						</div>
 					</div>
+					<?php if($this->session->flashdata('error')){ ?> <p style="color: red;"><?php echo $this->session->flashdata('error'); ?></p><?php } ?>
 				</form>
 			</div>
 			<div clsss = "col l6">
