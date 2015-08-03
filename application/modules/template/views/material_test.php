@@ -330,9 +330,9 @@
 				</ul>
 			</li>
 	 
-			<li><a href="<?php echo base_url(); ?>about">About Us</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/about">About Us</a></li>
 
-			<li><a href="<?php echo base_url(); ?>contact">Contact Us</a></li>
+			<li><a href="<?php echo base_url(); ?>index.php/contact">Contact Us</a></li>
 		</ul> <!-- primary-nav -->
 	</nav> <!-- cd-nav -->
 	<div id="cd-search" class="cd-search" style = "margin-top: 48px;overflow: hidden;">
