@@ -17,7 +17,7 @@
                             </ul>
                         </div>
                         <div class="logo-element">
-                            IN+
+                            ZC
                         </div>
                     </li>
                     <li class="active">
@@ -33,11 +33,11 @@
                     </li>
 
                     <li class="">
-                        <a href="<?php echo base_url().'index.php' ?>"><i class="fa fa-th-large"></i> <span class="nav-label">Products</span> <span class="fa arrow"></span></a>
+                        <a href="<?php echo base_url().'index.php' ?>"><i class="fa fa-hand-o-right"></i> <span class="nav-label">Products</span> <span class="fa arrow"></span></a>
                         
                         <ul class="nav nav-second-level">
-                            <li class=""><a href="<?php echo base_url().'products/view_products/admin'; ?>">Products</a></li>
-                            <li class=""><a href="<?php echo base_url().'products/index/admin'; ?>">Product Details</a></li>
+                            <li class=""><a href="<?php echo base_url().'index.php/products/view_products/admin'; ?>">Products</a></li>
+                            <li class=""><a href="<?php echo base_url().'index.php/products/index/admin'; ?>">Product Details</a></li>
                         </ul>
                     </li>
 
