@@ -817,7 +817,7 @@
             var ctx = document.getElementById("polarChart").getContext("2d");
             var Polarchart = new Chart(ctx).PolarArea(polarData, polarOptions);
 
-            Dropzone.options.myAwesomeDropzone = {
+           Dropzone.options.myAwesomeDropzone = {
 
                 autoProcessQueue: false,
                 uploadMultiple: true,
@@ -844,8 +844,6 @@
             }
 
        });
-
-        });
     </script>
     
 </body>

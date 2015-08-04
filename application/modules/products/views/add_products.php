@@ -54,7 +54,9 @@
                                     </div>
                                     <label class="col-sm-2 control-label">Sub Categories: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" disabled="true" value="6" name="sub_cat" id="sub_cat">
+                                        <select style="width:320px;" name="sub" id="sub">
+                                        </select>
+                                        <!-- <input type="text" class="form-control" disabled="true" value="6" name="sub_cat" id="sub_cat"> -->
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -73,6 +75,7 @@
                                         <textarea type="text" class="form-control" rows="10" name="description" id="description"></textarea>
                                     </div>
                                 </div>
+                                
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
                                         <button class="btn btn-white" type="submit">Cancel</button>
@@ -84,16 +87,66 @@
                     </div>
                 </div>
             </div>
+
+            <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Dropzone Area</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form id="my-awesome-dropzone" class="dropzone">
+                              <div class="dropzone-previews"></div> <!-- this is were the previews should be shown. -->
+
+                              <!-- Now setup your input fields -->
+                              <input type="email" name="username" />
+                              <input type="password" name="password" />
+
+                              <button type="submit">Submit data and files!</button>
+                            </form>
+                        <div>
+                            <div class="m text-right"><small>DropzoneJS is an open source library that provides drag'n'drop file uploads with image previews: <a href="https://github.com/enyo/dropzone" target="_blank">https://github.com/enyo/dropzone</a></small> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            </div>
         </div>
         <script type="text/javascript">
-        $(document).ready(fuction(){
+        $(document).ready(function(){
             $('#category').change(function(){
-                id = $(this).val;
-
-                $.get('<?php echo base_url();?>categories/get_sub_categories/'+id, function(data) {
+                id = $(this).val();
+                    // $('#sub').append('<option val="1">One</option>');
+                $.get('<?php echo base_url();?>products/ajax_get_sub_categories/'+id, function(data) {
                     obj = jQuery.parseJSON(data);
 
-                    $.each();
+                    $('#sub').html(obj);
+                    console.log(obj);
+                    // var list = $("#sub");
+                    //     $.each(obj, function(index, item) {
+                    //         console.log(new Option(item.category_name, item.category_id));
+                    //       list.append(new Option(item.category_name, item.category_id));
+                    //     });
                 });
             });
         });

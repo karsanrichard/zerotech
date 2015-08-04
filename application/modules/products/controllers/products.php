@@ -4,7 +4,7 @@
 */
 class Products extends MY_Controller
 {
-	var $brands_drop;
+	var $brands_drop, $sub_drop;
 	function __construct()
 	{
 		parent::__construct();
@@ -124,7 +124,7 @@ class Products extends MY_Controller
 	{
 		$brands_data = $this->products_model->get_brands();
 
-		$this->brands_drop .= '<select class="chosen-select form-control" style="width:350px;" tabindex="2" name="brand" id="brand">';
+		$this->brands_drop .= '<select class="chosen-select form-control" style="width:320px;" tabindex="2" name="brand" id="brand">';
 		$this->brands_drop .= '<option value="" selected="true" disabled="true">**Select a Brand**</option>';
 		foreach ($brands_data as $key => $value) {
 			$this->brands_drop .= '<option value="'.$value["brand_id"].'">'.$value["brand_name"].'</option>';
@@ -139,7 +139,12 @@ class Products extends MY_Controller
 	{
 		$sub_categories = $this->categories->get_sub_categories($parent_id);
 
-		$sub_categories = json_encode($sub_categories,JSON_PRETTY_PRINT);
+            $this->sub_drop .= '<option value="" selected="true" disabled="true">** Choose a Sub-Category **</option>';
+        foreach ($sub_categories as $key => $value) {
+            $this->sub_drop .= '<option value="'.$value["category_id"].'">'.$value["category_name"].'</option>';
+        }
+
+		$sub_categories = json_encode($this->sub_drop ,JSON_PRETTY_PRINT);
 
 		echo $sub_categories;
 	}
