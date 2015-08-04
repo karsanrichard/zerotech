@@ -45,7 +45,7 @@ class Products extends MY_Controller
     {
     	$name = $this->input->post('product_name');
     	$brand = $this->input->post('brand');
-    	$category = $this->input->post('sub_cat');
+    	$category = $this->input->post('sub');
     	$color = $this->input->post('color');
     	$price = $this->input->post('price');
     	$description = $this->input->post('description');
