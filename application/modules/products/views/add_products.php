@@ -141,7 +141,7 @@
                     obj = jQuery.parseJSON(data);
 
                     $('#sub').html(obj);
-                    console.log(obj);
+                    // console.log(obj);
                     // var list = $("#sub");
                     //     $.each(obj, function(index, item) {
                     //         console.log(new Option(item.category_name, item.category_id));
