@@ -136,6 +136,7 @@
                                 <th>Price (Ksh)</th>
                                 <th>Brand</th>
                                 <th>Date Added</th>
+                                <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>

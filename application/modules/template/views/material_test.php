@@ -16,6 +16,16 @@
 	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<script src="<?php echo ASSETS_URL; ?>custom/modernizr.js" type="text/javascript"></script>
 	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<style type="text/css">
+	.input-field input
+	{
+		font-size: 12px;
+	}
+	.input-field label
+	{
+		font-size: 12px;
+	}
+</style>
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -53,7 +63,7 @@
 		</div>
 	</div>
 	<header class="cd-main-header">
-		<a class="cd-logo" href="#0"><img src="<?php echo ASSETS_URL; ?>custom/api_logo.png" alt="Logo"></a>
+		<a class="cd-logo" href="<?php echo base_url(); ?>"><img src="<?php echo ASSETS_URL; ?>custom/api_logo.png" alt="Logo"></a>
 
 		<ul class="cd-header-buttons">
 			<li><a class="cd-search-trigger" href="#cd-search">Search<span></span></a></li>
@@ -111,7 +121,7 @@
 	?>
 	<nav class="cd-nav">
 		<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
-			<li><a href="<?php echo base_url(); ?>">Home</a></li>
+			<li><a href="<?php echo base_url(); ?>" class = "selected">Home</a></li>
 			<li class="has-children">
 				<a href="#0">Computers</a>
 	 
@@ -242,6 +252,7 @@
 							<li class="go-back"><a href="#0">Brands</a></li>
 							<li class="see-all"><a href="#0">All Brands</a></li>
 							<li><a href="#0">Nikon</a></li>
+							<li><a href="#0">Canon</a></li>
 							<li><a href="#0">Kodak</a></li>
 							<li><a href="#0">Samsung</a></li>
 							<li><a href="#0">Sony</a></li>
@@ -321,7 +332,7 @@
 	 
 			<li><a href="<?php echo base_url(); ?>about">About Us</a></li>
 
-			<li><a href="#0">Contact Us</a></li>
+			<li><a href="<?php echo base_url(); ?>contact">Contact Us</a></li>
 		</ul> <!-- primary-nav -->
 	</nav> <!-- cd-nav -->
 	<div id="cd-search" class="cd-search" style = "margin-top: 48px;overflow: hidden;">

@@ -1,6 +1,6 @@
 <div class="cd-member-bio member-1">
 	<div class="cd-member-bio-pict">
-		<img src="<?php echo ASSETS_URL; ?>images/img/chris-bio.jpg" alt="Member Bio image">
+		<img src="<?php echo ASSETS_URL; ?>images/img/chris-bio.jpg" alt="Chrispine's Bio image">
 	</div> <!-- cd-member-bio-pict -->
 
 	<div class="cd-bio-content">
@@ -15,6 +15,7 @@
 				<a href = ""><i class = "ion ion-social-instagram-outline"></i></a>
 				<a href = ""><i class = "ion ion-social-github"></i></a>
 				<a href = ""><i class = "ion ion-social-pinterest-outline"></i></a>
+				<a href = ""><i class = "ion ion-social-googleplus"></i></a>
 			</center>
 		</div>
 	</div> <!-- cd-bio-content -->
@@ -22,7 +23,7 @@
 
 <div class="cd-member-bio member-2">
 	<div class="cd-member-bio-pict">
-		<img src="<?php echo ASSETS_URL; ?>images/img/richard-bio.jpg" alt="Member Bio image">
+		<img src="<?php echo ASSETS_URL; ?>images/img/richard-bio.jpg" alt="Richard's Bio image">
 	</div> <!-- cd-member-bio-pict -->
 
 	<div class="cd-bio-content">
@@ -37,6 +38,7 @@
 				<a href = ""><i class = "ion ion-social-instagram-outline"></i></a>
 				<a href = ""><i class = "ion ion-social-github"></i></a>
 				<a href = ""><i class = "ion ion-social-pinterest-outline"></i></a>
+				<a href = ""><i class = "ion ion-social-googleplus"></i></a>
 			</center>
 		</div>
 	</div> <!-- cd-bio-content -->
@@ -44,7 +46,7 @@
 
 <div class="cd-member-bio member-3">
 	<div class="cd-member-bio-pict">
-		<img src="<?php echo ASSETS_URL; ?>images/img/joshua-bio.jpg" alt="Member Bio image">
+		<img src="<?php echo ASSETS_URL; ?>images/img/joshua-bio.jpg" alt="Joshua's Bio image">
 	</div> <!-- cd-member-bio-pict -->
 
 	<div class="cd-bio-content">
@@ -59,6 +61,7 @@
 				<a href = ""><i class = "ion ion-social-instagram-outline"></i></a>
 				<a href = ""><i class = "ion ion-social-github"></i></a>
 				<a href = ""><i class = "ion ion-social-pinterest-outline"></i></a>
+				<a href = ""><i class = "ion ion-social-googleplus"></i></a>
 			</center>
 		</div>
 	</div> <!-- cd-bio-content -->
