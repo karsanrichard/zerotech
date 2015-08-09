@@ -89,10 +89,8 @@
         $(document).ready(fuction(){
             $('#category').change(function(){
                 id = $(this).val;
-
                 $.get('<?php echo base_url();?>categories/get_sub_categories/'+id, function(data) {
                     obj = jQuery.parseJSON(data);
-
                     $.each();
                 });
             });
