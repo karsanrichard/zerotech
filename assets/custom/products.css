@@ -1,0 +1,51 @@
+.sidebar-menu{
+	border-right: 1px solid #a8a8a8;
+}
+.product-imitation {
+    text-align: center;
+    padding: 90px 0;
+    background-color: #f8f8f9;
+    color: #bebec3;
+    font-weight: 600;
+}
+
+.ibox {
+    clear: both;
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.product-box:hover, .product-box.active {
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0px 3px 7px 0px #a8a8a8;
+    -moz-box-shadow: 0px 3px 7px 0px #a8a8a8;
+    box-shadow: 1px 3px 7px 0px #a8a8a8;
+}
+
+.product-box {
+    padding: 0;
+    border: 1px solid #e7eaec;
+}
+
+.ibox-content {
+    clear: both;
+}
+
+.ibox-content-products {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 10px 10px 10px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0px;
+}
+
+.margin-vert{
+	margin-top: 50px;
+}
+
+.indented{
+	padding-left: 10px;
+}

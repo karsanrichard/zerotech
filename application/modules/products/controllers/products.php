@@ -240,6 +240,89 @@ class Products extends MY_Controller
 		echo json_encode($this->sub_drop);
 	}
 
+	function display_products(){
+		$data['table'] = $this->createproducts('table');
+		$data['grid'] = $this->createproducts();
+		$data['categories'] = $this->parent_categories_dropdown();
+		$products = $this->products_model->get_products();
+		// echo "<pre>";print_r($products);echo "</pre>";exit;
+		$salenda = NULL;
+		$div_split_counter = 0;
+		foreach ($products as $key => $value) {
+		$div_split_counter = $div_split_counter + 1;
+		if (($div_split_counter % 4) == 0) {
+			$salenda .= '<div class = "row">';
+		}
+		$products_img = $this->products_model->get_product_image($value['product_id']);
+
+			$salenda .= '
+			<div class="col-md-3">
+	            <div class="ibox">
+	                <div class="ibox-content-products product-box">
+
+	                    <div class="product-imitation">
+        					<img src="'.$products_img[0]['path'].'">
+	                    </div>
+	                  <div class="product-desc">
+                                <a href="#" class="product-name"> 
+                                    '. $value['product_name'].'
+                                </a>
+                                <span class="product-price">
+                                    '.$value['price'].'
+                                </span>
+                                </br>
+                                <small class="text-muted">
+                                    '.$value['category_name'].'
+                                </small>
+                                <div class="small m-t-xs">
+                                    '.$value['description'].'
+                                </div>
+	                        <div class="m-t text-righ">
+	                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+	                            <a href="#"><i style = "float:right;" class = "ion ion-bag fa-2x"></i></a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+    		</div>
+			';
+
+			if (($div_split_counter%4) == 0) {
+			$salenda .= '</div>';
+			}
+			
+		}//foreach
+		$categories = $this->products_model->get_parent_categories();
+		$sidebar = NULL;
+
+		// echo "<pre>";print_r($categories);echo "</pre>";exit;
+		foreach ($categories as $key => $value) {
+			$sub_categories = $this->products_model->get_sub_categories($value['category_id']);
+			$sidebar .= '<ul>';
+			$sidebar .= '<li>';
+			$sidebar .= '
+        	<a href="#">'.$value['category_name'].'</a>
+			';
+			if (count($sub_categories)>0) {
+				// echo "FIRED";
+				$sidebar.= '
+				<ul class="indented">';
+				foreach ($sub_categories as $key => $value) {
+				$sidebar.= '<li style = "color:red;"><a href="#">'.$value['category_name'].'</a></li>';
+				}
+				$sidebar .= '</ul>';
+			}
+			$sidebar .= '</li>';
+			$sidebar .= '</ul>';
+		}
+		$data['sidebar'] = $sidebar;
+		$data['products_grid'] = $salenda;
+		$data['content_view'] = 'products/products_public';
+		// $data['content_view'] = 'products/products_grid';
+
+    	$this->template->call_frontend_template($data);
+	}
+
 
 }
 ?>

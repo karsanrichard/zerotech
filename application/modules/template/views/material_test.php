@@ -3,6 +3,7 @@
 <head>
 	<title>ZEROCORP SHOP</title>
 	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css" media="screen,projection">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -10,6 +11,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans|Cabin|Open+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>custom/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>custom/products.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>custom/custom.css">
 	<link rel="stylesheet" href="<?php echo ASSETS_URL; ?>owl.carousel/owl-carousel/owl.carousel.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>owl.carousel/owl-carousel/owl.theme.css">
