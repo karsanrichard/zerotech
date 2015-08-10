@@ -66,16 +66,6 @@ class Products_model extends MY_Model
 		return $result->result_array();
 	}
 
-	function add_product($name,$brand,$category,$color,$price,$description)
-	{
-		$sql = "INSERT INTO `products`
-					(`product_name`,`description`,`price`,`color`,`brand_id`,`category_id`)
-				VALUES
-					('$name','$description','$price','$color','$brand','$category')";
-		$insert = $this->db->query($sql);
-		return $insert;
-	}
-
 	function get_categories($category_id = NULL){
 		$addition = isset($category_id)? "WHERE category_id = $category_id" : NULL ; 
 		$sql = "SELECT * FROM category $addition";
