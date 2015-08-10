@@ -57,7 +57,7 @@ class MY_Controller extends MX_Controller{
 	{
 		$categories_data = $this->categories->get_parent_categories();
 
-		$this->category_drop .= '<select class="chosen-select form-control" style="width:320px;" tabindex="2" name="category" id="category">';
+		$this->category_drop .= '<select class="chosen-select form-control required" tabindex="2" name="category" id="category">';
 		$this->category_drop .= '<option value="" selected="true" disabled="true">**Select a Category**</option>';
 		foreach ($categories_data as $key => $value) {
 			$this->category_drop .= '<option value="'.$value["category_id"].'">'.$value["category_name"].'</option>';

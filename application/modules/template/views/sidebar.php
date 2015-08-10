@@ -33,13 +33,8 @@
                     </li>
 
                     <li class="">
-                        <a href="<?php echo base_url().'index.php' ?>"><i class="fa fa-hand-o-right"></i> <span class="nav-label">Products</span> <span class="fa arrow"></span></a>
-                        
-                        <ul class="nav nav-second-level">
-                            <li class=""><a href="<?php echo base_url().'index.php/products/view_products/admin'; ?>">Products</a></li>
-                            <li class=""><a href="<?php echo base_url().'index.php/products/index/admin'; ?>">Product Details</a></li>
-                        </ul>
-                    </li>
+                        <a href="<?php echo base_url().'products/product_list' ?>"><i class="fa fa-hand-o-right"></i> <span class="nav-label">Products</span></a>
+                     </li>
 
                     <li>
                         <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
