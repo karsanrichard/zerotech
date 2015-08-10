@@ -299,14 +299,14 @@ class Products extends MY_Controller
 		foreach ($categories as $key => $value) {
 			$sub_categories = $this->products_model->get_sub_categories($value['category_id']);
 			$sidebar .= '<ul>';
-			$sidebar .= '<li>';
+			$sidebar .= '<li class="has-sub">';
 			$sidebar .= '
-        	<a href="#">'.$value['category_name'].'</a>
+        	<a href="#" >'.$value['category_name'].'</a>
 			';
 			if (count($sub_categories)>0) {
 				// echo "FIRED";
 				$sidebar.= '
-				<ul class="indented">';
+				<ul>';
 				foreach ($sub_categories as $key => $value) {
 				$sidebar.= '<li style = "color:red;"><a href="#">'.$value['category_name'].'</a></li>';
 				}
@@ -318,6 +318,8 @@ class Products extends MY_Controller
 		$data['sidebar'] = $sidebar;
 		$data['products_grid'] = $salenda;
 		$data['content_view'] = 'products/products_public';
+
+
 		// $data['content_view'] = 'products/products_grid';
 
     	$this->template->call_frontend_template($data);

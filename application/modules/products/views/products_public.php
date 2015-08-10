@@ -1,5 +1,6 @@
 <div class="row margin-vert">
-    <div class="col-md-2 sidebar-menu">
+    <!-- <div>Categories</div> -->
+    <div class="col-md-2" id="sidebarmenu">
         <?php echo $sidebar; ?>
     </div>
     <div class=" col-md-10">
