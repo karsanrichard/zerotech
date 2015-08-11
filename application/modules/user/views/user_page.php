@@ -14,7 +14,7 @@
 
 	</div>
 </div>
-<div class = "row" style="background: #fff;">
+<div style="background: #fff;">
 	<table class = "table table-bordered table-hover">
 		<thead>
 			<th>#</th>
