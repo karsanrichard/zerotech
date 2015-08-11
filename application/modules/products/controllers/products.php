@@ -370,7 +370,7 @@ class Products extends MY_Controller
 			$salenda .= '<div class = "row">';
 		}
 		$products_img = $this->products_model->get_product_image($value['product_id']);
-
+echo "<pre>";print_r($products_img);die();
 			$salenda .= '
 			<div class="col-md-3">
 	            <div class="ibox">

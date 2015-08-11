@@ -1,5 +1,5 @@
 <?php
-define('ASSETS_URL', 'http://localhost/zerocorp/assets/');
+define('ASSETS_URL', 'http://localhost/zerotech/assets/');
 include_once './vendor/autoload.php';
 /*
  *---------------------------------------------------------------
