@@ -117,7 +117,7 @@ class Products extends MY_Controller
                             </div>
                             <div class="product-desc">
                                 <span class="product-price">
-                                    '.$value['price'].'
+                                    Ksh. '.$value['price'].'
                                 </span>
                                 <small class="text-muted">
                                     '.$value['category_name'].'
