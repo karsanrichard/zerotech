@@ -66,6 +66,14 @@ class Products_model extends MY_Model
 		return $result->result_array();
 	}
 
+	function get_product_image($product_id = NULL){
+		$query = "
+		SELECT * from product_images WHERE product_id = $product_id
+		";
+		$result = $this->db->query($query);
+		return $result ->result_array(); 
+	}
+
 	function get_products_by_category($category_id){
 		$sql = "SELECT * FROM products WHERE category_id = $category_id";
 
@@ -82,6 +90,16 @@ class Products_model extends MY_Model
 
 		return $result->result_array();
 	}
+
+	function get_parent_categories($category_id = NULL){
+		$addition = isset($category_id)? "AND category_id = $category_id" : NULL ; 
+		$sql = "SELECT * FROM category WHERE parent_id = 0 $addition";
+
+		$result = $this->db->query($sql);
+
+		return $result->result_array();
+	}
+
 
 	function get_brands($brand_id = NULL){
 		$addition = isset($brand_id)? "WHERE brand_id = $brand_id" : NULL ; 
@@ -101,22 +119,7 @@ class Products_model extends MY_Model
 		return $result->result_array();
 	}
 
-	function get_product_images($product_id = NULL)
-	{
-		$addition = isset($product_id)? "WHERE p.product_id = $product_id": NULL;
-		// $sql = "SELECT * FROM products WHERE product_id = $id";
-		$sql = "
-		SELECT 
-		p.image_id,
-		p.product_id,
-		p.path
-
-		FROM product_images p
-				";
-		$result = $this->db->query($sql);
-
-		return $result->result_array();
-	}
+	
 }
 
 ?>
