@@ -112,7 +112,7 @@ class Products extends MY_Controller
                     <div class="ibox">
                         <div class="ibox-content product-box">
 
-                            <div class="product-imitation" >
+                            <div class="product-imitation" style="padding:0px;">
                             	<img src="'.$value['cover_image'].'" class="img-responsive" alt="Cover Image" />
                             </div>
                             <div class="product-desc">
@@ -370,7 +370,7 @@ class Products extends MY_Controller
 			$salenda .= '<div class = "row">';
 		}
 		$products_img = $this->products_model->get_product_image($value['product_id']);
-echo "<pre>";print_r($products_img);die();
+// echo "<pre>";print_r($products_img);die();
 			$salenda .= '
 			<div class="col-md-3">
 	            <div class="ibox">
@@ -439,6 +439,11 @@ echo "<pre>";print_r($products_img);die();
 		// $data['content_view'] = 'products/products_grid';
 
     	$this->template->call_frontend_template($data);
+	}
+
+	function product_pagination()
+	{
+		$pages = $this->products_model->product_pagination();
 	}
 
 }

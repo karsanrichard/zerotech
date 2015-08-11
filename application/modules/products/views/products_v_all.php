@@ -45,7 +45,7 @@
                 <div class="input-group-btn">
                     <button data-toggle="table" id = "toggler" class="btn btn-danger" type="button">Toggle view</button>
                 </div>
-                <form>
+                <form method="post">
                  <input type="text" class="form-control" placeholder="Search Product">
                 </form>
             </div>
@@ -54,7 +54,7 @@
     </div>
 
     <div class = "row" id = "models-container">
-        <div class="ibox float-e-margins"  id = 'product-table'>
+        <div class="ibox float-e-margins"  id = 'product-table' style="margin-left: 1em; margin-right: 1em;">
             <div class="ibox-title">
                 <h5>Products </h5> <span class="label label-primary">P+</span>
             <div class="ibox-tools">

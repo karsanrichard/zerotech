@@ -119,6 +119,28 @@ class Products_model extends MY_Model
 		return $result->result_array();
 	}
 
+	function product_pagination()
+	{
+		$sql = "SELECT COUNT(`product_id`) AS `number` FROM `products`";
+
+		$result = $this->db->query($sql);
+		$result = $result->result_array();
+		// echo "<pre>";print_r($result[0]['number']);die();
+		$count = 0;
+		$page_count = 1;
+		for ($i=0; $i < $result[0]['number']; $i++) { 
+			$count = $count++;
+		}
+		$grouping = $count/10;
+		if($grouping<1){
+			$pages = $page_count;
+		}
+		$pages = intval($grouping);
+		
+		
+		echo $pages;
+	}
+
 	
 }
 
