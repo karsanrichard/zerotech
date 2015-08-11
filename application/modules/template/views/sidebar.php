@@ -3,10 +3,10 @@
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="<?php echo ASSETS_URL;?>backend/img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" style="height:50px;width:50px;" src="<?php echo ASSETS_URL;?>images/img/richard.jpg" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> Richard Karsan </strong>
                              </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a href="">Profile</a></li>
@@ -34,13 +34,8 @@
                     </li>
 
                     <li class="">
-                        <a href="<?php echo base_url().'index.php' ?>"><i class="fa fa-hand-o-right"></i> <span class="nav-label">Products</span> <span class="fa arrow"></span></a>
-                        
-                        <ul class="nav nav-second-level">
-                            <li class=""><a href="<?php echo base_url().'index.php/products/view_products/admin'; ?>">Products</a></li>
-                            <li class=""><a href="<?php echo base_url().'index.php/products/index/admin'; ?>">Product Details</a></li>
-                        </ul>
-                    </li>
+                        <a href="<?php echo base_url().'products/product_list' ?>"><i class="fa fa-hand-o-right"></i> <span class="nav-label">Products</span></a>
+                     </li>
 
                     <li>
                         <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>

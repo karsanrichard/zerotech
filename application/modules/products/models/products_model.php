@@ -10,8 +10,15 @@ class Products_model extends MY_Model
 		parent::__construct();
 	}
 
-	function add_product($name,$brand,$category,$color,$price,$description)
+	function add_product()
 	{
+		$name = $this->input->post('product_name');
+		$brand = $this->input->post('brand');
+		$category = $this->input->post('category');
+		$color = $this->input->post('color');
+		$price = $this->input->post('price');
+		$description = $this->input->post('description');
+		
 		$sql = "INSERT INTO `products`
 					(`product_name`,`description`,`price`,`color`,`brand_id`,`category_id`)
 				VALUES
@@ -22,14 +29,14 @@ class Products_model extends MY_Model
 		return $insert;
 	}
 
-	function get_all_products()
-	{
-		$sql = "SELECT * FROM products";
+	// function get_all_products()
+	// {
+	// 	$sql = "SELECT * FROM products";
 
-		$result = $this->db->query($sql);
+	// 	$result = $this->db->query($sql);
 
-		return $result->result_array();
-	}
+	// 	return $result->result_array();
+	// }
 
 	function get_products($product_id = NULL)
 	{
@@ -58,6 +65,14 @@ class Products_model extends MY_Model
 		return $result->result_array();
 	}
 
+	function get_product_image($product_id = NULL){
+		$query = "
+		SELECT * from product_images WHERE product_id = $product_id
+		";
+		$result = $this->db->query($query);
+		return $result ->result_array(); 
+	}
+
 	function get_products_by_category($category_id){
 		$sql = "SELECT * FROM products WHERE category_id = $category_id";
 
@@ -75,6 +90,16 @@ class Products_model extends MY_Model
 		return $result->result_array();
 	}
 
+	function get_parent_categories($category_id = NULL){
+		$addition = isset($category_id)? "AND category_id = $category_id" : NULL ; 
+		$sql = "SELECT * FROM category WHERE parent_id = 0 $addition";
+
+		$result = $this->db->query($sql);
+
+		return $result->result_array();
+	}
+
+
 	function get_brands($brand_id = NULL){
 		$addition = isset($brand_id)? "WHERE brand_id = $brand_id" : NULL ; 
 		$sql = "SELECT * FROM brand $addition";
@@ -83,6 +108,16 @@ class Products_model extends MY_Model
 
 		return $result->result_array();
 	}
+
+	function get_sub_categories($id)
+	{
+		$sql = "SELECT * FROM `category` WHERE `parent_id` = '$id'";
+
+		$result = $this->db->query($sql);
+
+		return $result->result_array();
+	}
+
 }
 
 ?>
