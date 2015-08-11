@@ -16,10 +16,11 @@ class Products extends MY_Controller
 		//SESSION DATA SELECTION FOR ACCESS LEVEL HERE. EQUATE TO ABOVE PARAM
 		switch ($access_level) {
 			case 'admin':
-		    	$data['page_heading'] = 'Products';
-		    	$data['content_view'] = 'products/products_v';
-		    	$data['product_data'] = $this->products_model->get_products();
-		    	$this->template->call_backend_template($data);
+				$this->product_list();
+		    	// $data['page_heading'] = 'Products';
+		    	// $data['content_view'] = 'products/products_v';
+		    	// $data['product_data'] = $this->products_model->get_products();
+		    	// $this->template->call_backend_template($data);
     		case 'member':
     			// redirect("home");
 				break;
@@ -41,7 +42,26 @@ class Products extends MY_Controller
 
     function add_products()
     {
-    	$insert = $this->products_model->add_product();
+    	$upload_image = 'cover';
+		$upload_path = '././assets/product_images/products_uploads/covers/';
+		$files = $_FILES['cover'];
+
+		$file_ext = explode(".", $files['name']);
+        $file_ext = end($file_ext);
+
+		$allowed = array('gif','jpg','png','jpeg');
+
+		if(in_array($file_ext, $allowed)){
+			$image_name = $files['name'];
+    		$temp_path = $files['tmp_name'];
+    		move_uploaded_file($temp_path, $upload_path.$image_name);
+    		$path = base_url().'assets/product_images/products_uploads/covers/'.$image_name;
+    		
+		}else{
+			print "Image format not supported";
+		}
+
+		$insert = $this->products_model->add_product($path);
 
     	if(!$insert){print "An error occured as the product was being inserted please try again or if the problem persist contact the administrator.!!";}
     	else{redirect(base_url().'products/product_list');}
@@ -92,8 +112,8 @@ class Products extends MY_Controller
                     <div class="ibox">
                         <div class="ibox-content product-box">
 
-                            <div class="product-imitation">
-                                [ PHOTO ]
+                            <div class="product-imitation" >
+                            	<img src="'.$value['cover_image'].'" class="img-responsive" alt="Cover Image" />
                             </div>
                             <div class="product-desc">
                                 <span class="product-price">
@@ -110,7 +130,7 @@ class Products extends MY_Controller
                                 </div>
                                 <div class="m-t text-righ">
 
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                    <a href="'.base_url().'products/product_profile/'.$value['product_id'].'" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
                                 </div>
                             </div>
                         </div>
@@ -143,11 +163,21 @@ class Products extends MY_Controller
 		}
 		else
 		{
-			$products_section = '<div class = "empty"><center><h2>No Products Added Yet. </h2><a class = "btn btn-primary btn-outline" href = "'.base_url().'models/newmodel">Add one Here</a></center>
+			$products_section = '<div class = "empty"><center><h2>No Products Added Yet. </h2><a class = "btn btn-primary btn-outline" href = "'.base_url().'products/add">Add one Here</a></center>
 			</div>';
 		}
 
 		return $products_section;
+	}
+
+	function product_profile($id)
+	{
+		$data['page_heading'] = 'Products';
+    	$data['content_view'] = 'products/product_profile';
+    	$data['product_details'] = $this->products_model->get_products($id);
+    	// echo "<pre>";print_r($data['product_data']);
+    	$this->template->call_backend_template($data);
+		// echo "<pre>";print_r($data);
 	}
 
     function edit_product($product_id){
@@ -240,6 +270,90 @@ class Products extends MY_Controller
 		echo json_encode($this->sub_drop);
 	}
 
+	function ajax_products_images($id)
+	{
+		
+
+		$return_data = array();
+		$pictures_section = '';
+		$all_pictures = '';
+		$product_images = $this->products_model->get_product_images($id);
+		// $model_images = $this->m_models->getmodelimages($model_id);
+
+		if ($product_images) {
+			$pictures_section .= '<div class="carousel slide" id="carousel2">
+                                <ol class="carousel-indicators">';
+            $counter = 0;
+            $first_five = array_slice($product_images, 0, 5);
+			foreach ($first_five as $key => $value) {
+				if($counter == 0){
+					$pictures_section .= '<li data-slide-to = "'.$counter.'" data-target = "#carousel2" class = "active"></li>';
+				}
+				else
+				{
+					$pictures_section .= '<li data-slide-to = "'.$counter.'" data-target = "#carousel2"></li>';
+				}
+				$counter++;
+			}
+			$pictures_section .='</ol>
+			<div class="carousel-inner">';
+
+			$counter = 0;
+			foreach ($first_five as $key => $value) {
+				if ($counter == 0) {
+					$pictures_section .= '<div class = "item active">';
+				}
+				else
+				{
+					$pictures_section .= '<div class = "item">';
+				}
+
+				$pictures_section .= '<img alt="image"  class="img-responsive carousel_image" src="'.$value['path'].'">
+				<div class = "carousel-caption">
+					<p>#</p>
+				</div></div>';
+
+				$counter++;
+
+			}
+			$pictures_section .= '
+                                <a data-slide="prev" href="#carousel2" class="left carousel-control">
+                                    <span class="icon-prev"></span>
+                                </a>
+                                <a data-slide="next" href="#carousel2" class="right carousel-control">
+                                    <span class="icon-next"></span>
+                                </a>
+                            </div></div>';
+            $first_three = array_slice($product_images, 0, 3);
+            $pictures_section .= '<br/><center><div class = "row">';
+            foreach ($first_three as $key => $value) {
+            	$pictures_section .= '<a href = "'.$value['path'].'" class = "fancybox" title = "#">
+            	<img src = "'.$value['path'].'" alt = "Product Image"
+            	</a>';
+			}
+            $pictures_section .= '</div></center>';
+
+            foreach ($product_images as $key => $value) {
+            	$all_pictures .= '<a href = "'.$value['path'].'" class = "fancybox" title = "Product Image">
+            	<img src = "'.$value['path'].'" alt = "product_images"
+            	</a>';
+            }
+		}
+		else
+		{
+			$pictures_section .= '<div class = "no_data">
+			<center><h1>No images Here!</h1>
+			<a class = "btn btn-danger btn-outline upload_caller">Scroll Down to Upload Some</a></center>
+			</div>';
+
+			$all_pictures = $pictures_section;
+		}
+
+		$return_data['pictures_section'] = $pictures_section;
+		$return_data['all_pictures'] = $all_pictures;
+
+		echo json_encode($return_data);
+	}
 
 }
 ?>

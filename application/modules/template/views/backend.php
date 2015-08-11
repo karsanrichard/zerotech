@@ -20,6 +20,8 @@
     <link href="<?php echo ASSETS_URL;?>backend/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
 
     <link href="<?php echo ASSETS_URL;?>backend/css/animate.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="<?php echo ASSETS_URL;?>backend/css/plugins/dropzone/basic.css" rel="stylesheet">
     <link href="<?php echo ASSETS_URL;?>backend/css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <link href="<?php echo ASSETS_URL;?>backend/css/style.css" rel="stylesheet">
     <script src="<?php echo ASSETS_URL;?>backend/js/jquery-2.1.1.js"></script>
@@ -320,6 +322,8 @@
     <!-- Toastr -->
     <script src="<?php echo ASSETS_URL;?>backend/js/plugins/toastr/toastr.min.js"></script>
 
+    <script href="<?php echo ASSETS_URL;?>backend/js/plugins/dropzone/dropzone.js" rel="stylesheet"></script>
+
     <!-- Steps -->
     <script src="<?php echo ASSETS_URL;?>backend/js/plugins/staps/jquery.steps.min.js"></script>
 
@@ -458,7 +462,7 @@
             // };
             // var ctx = document.getElementById("polarChart").getContext("2d");
             // var Polarchart = new Chart(ctx).PolarArea(polarData, polarOptions);
-
+            
         });
     </script>
     

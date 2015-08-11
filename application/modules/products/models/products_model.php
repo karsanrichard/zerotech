@@ -10,7 +10,7 @@ class Products_model extends MY_Model
 		parent::__construct();
 	}
 
-	function add_product()
+	function add_product($upload_path)
 	{
 		$name = $this->input->post('product_name');
 		$brand = $this->input->post('brand');
@@ -18,11 +18,11 @@ class Products_model extends MY_Model
 		$color = $this->input->post('color');
 		$price = $this->input->post('price');
 		$description = $this->input->post('description');
-		
+
 		$sql = "INSERT INTO `products`
-					(`product_name`,`description`,`price`,`color`,`brand_id`,`category_id`)
+					(`product_name`,`description`,`price`,`color`,`brand_id`,`category_id`,`cover_image`)
 				VALUES
-					('$name','$description','$price','$color','$brand','$category')";
+					('$name','$description','$price','$color','$brand','$category','$upload_path')";
 
 		$insert = $this->db->query($sql);
 
@@ -51,6 +51,7 @@ class Products_model extends MY_Model
 		p.status,
 		p.added_on,
 		p.color,
+		p.cover_image,
 		b.brand_name,b.brand_description,b.brand_id,
 		c.category_name,c.category_description,
 		c.category_id
@@ -95,6 +96,23 @@ class Products_model extends MY_Model
 	{
 		$sql = "SELECT * FROM `category` WHERE `parent_id` = '$id'";
 
+		$result = $this->db->query($sql);
+
+		return $result->result_array();
+	}
+
+	function get_product_images($product_id = NULL)
+	{
+		$addition = isset($product_id)? "WHERE p.product_id = $product_id": NULL;
+		// $sql = "SELECT * FROM products WHERE product_id = $id";
+		$sql = "
+		SELECT 
+		p.image_id,
+		p.product_id,
+		p.path
+
+		FROM product_images p
+				";
 		$result = $this->db->query($sql);
 
 		return $result->result_array();
