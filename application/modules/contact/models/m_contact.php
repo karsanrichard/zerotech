@@ -15,4 +15,12 @@ class M_Contact extends MY_Controller
 
 		return $inserted;
 	}
+
+	function get_customer_contacts()
+	{
+		$this->db->order_by('date_created', 'asc');
+		$contacts = $this->db->get('contact');
+
+		return $contacts->result();
+	}
 }

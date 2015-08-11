@@ -9,18 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ZeroTech | Dashboard</title>
-
-    <link href="<?php echo ASSETS_URL;?>backend/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo ASSETS_URL;?>backend/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Toastr style -->
-    <link href="<?php echo ASSETS_URL;?>backend/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="<?php echo ASSETS_URL;?>backend/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
-
-    <link href="<?php echo ASSETS_URL;?>backend/css/animate.css" rel="stylesheet">
-    <link href="<?php echo ASSETS_URL;?>backend/css/style.css" rel="stylesheet">
+    
+    <?php $this->load->view('template/top_include_styles_scripts'); ?>
 
 </head>
 
@@ -275,49 +265,7 @@
         </div>
     </div>
 
-    <!-- Mainly scripts -->
-    <script src="<?php echo ASSETS_URL;?>backend/js/jquery-2.1.1.js"></script>
-    <script src="<?php echo ASSETS_URL;?>backend/js/bootstrap.min.js"></script>
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-    <!-- Flot -->
-
-    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.js"></script>
-    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="<?php echo ASSETS_URL;ASSETS_URL;?>backend/js/plugins/dataTables/jquery.dataTables.js"></script>
-
-    <!-- Peity -->
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="<?php echo ASSETS_URL;?>backend/js/demo/peity-demo.js"></script>
-
-    <!-- Custom and plugin javascript -->
-    <script src="<?php echo ASSETS_URL;?>backend/js/inspinia.js"></script>
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/pace/pace.min.js"></script>
-
-    <!-- jQuery UI -->
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/jquery-ui/jquery-ui.min.js"></script>
-
-    <!-- GITTER -->
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/gritter/jquery.gritter.min.js"></script>
-
-    <!-- Sparkline -->
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/sparkline/jquery.sparkline.min.js"></script>
-
-    <!-- Sparkline demo data  -->
-    <script src="<?php echo ASSETS_URL;?>backend/js/demo/sparkline-demo.js"></script>
-
-    <!-- ChartJS-->
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/chartJs/Chart.min.js"></script>
-
-
-    <script src="<?php echo ASSETS_URL;?>backend/js/custom.js"></script>
-    <!-- Toastr -->
-    <script src="<?php echo ASSETS_URL;?>backend/js/plugins/toastr/toastr.min.js"></script>
-
+   <?php $this->load->view('template/bottom_include_scripts'); ?>
 
     <script>
         $(document).ready(function() {
