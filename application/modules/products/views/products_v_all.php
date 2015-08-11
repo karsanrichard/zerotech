@@ -23,17 +23,32 @@
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row" id="filters">
-        <div class="col-lg-2"><a href="<?php echo base_url();?>products/add"  class="btn btn-primary "><i class="fa fa-plus fa-rotate-270"></i>&nbsp;Add Product</a></div>
-        <div class="col-lg-3"><?php echo $categories;?></div>
-        <div class="col-lg-4"></div>
-        <div class="col-lg-3">
-           
-                    <a class="btn btn-info " href = "#" id = "toggler" data-toggle = 'table'><span>Toggle view</span></a>
-               
-                    <form>
-                        <input />
-                    </form>
-           
+        <div class="col-md-4">
+            <div class="input-group m-b">
+                <div class="input-group-btn">
+                    <a href="<?php echo base_url();?>products/add"  class="btn btn-primary "><i class="fa fa-plus fa-rotate-270"></i>&nbsp;Add Product</a>
+                </div>
+                <?php echo $categories;?>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group m-b" id="pagination">
+                <div class="input-group-btn">
+                    <button data-toggle="" id = "" class="btn btn-info" type="button"><span class="caret"></span>Previous</button>
+                </div>
+                <button data-toggle="" id = "" class="btn btn-info" type="button">Pagination</button>
+                <button data-toggle="" id = "" class="btn btn-info" type="button"><span class="caret"></span>Next</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group m-b">
+                <div class="input-group-btn">
+                    <button data-toggle="table" id = "toggler" class="btn btn-danger" type="button">Toggle view</button>
+                </div>
+                <form>
+                 <input type="text" class="form-control" placeholder="Search Product">
+                </form>
+            </div>
         </div>
         
     </div>
@@ -106,7 +121,8 @@
                 $('#toggle-icon').addClass('fa-th');
                 $('#navigation-to').text('Grid');
                 $('#product-table').show();
-                $('#product-grid').hide();    
+                $('#product-grid').hide();
+                $('#pagination').hide();
             }
             else
             {
@@ -115,7 +131,8 @@
                 $('#toggle-icon').addClass('fa-table');
                 $('#navigation-to').text('Table');
                 $('#product-table').hide();
-                $('#product-grid').show();    
+                $('#product-grid').show(); 
+                $('#pagination').show();   
             }
         });
    });
