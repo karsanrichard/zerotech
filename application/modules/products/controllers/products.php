@@ -455,6 +455,7 @@ class Products extends MY_Controller
 
 	function ajax_category_filter($category_id)
 	{
+		if($category_id == 0){$category_id = NULL;}
 		$products = $this->products_model->get_products($product_id=NULL,$category_id);
 
 		$grid = $this->createproducts($products);

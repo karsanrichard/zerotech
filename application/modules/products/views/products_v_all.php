@@ -108,7 +108,7 @@
 <script>
     $(document).ready(function(){
         $('table').dataTable();
-
+        $('#category').append('<option value="0">All</option>');
         $('#product-table').hide();
         $('#product-grid').show();
        // getpagemodels('grid');
