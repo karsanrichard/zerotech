@@ -38,9 +38,10 @@ class Products_model extends MY_Model
 	// 	return $result->result_array();
 	// }
 
-	function get_products($product_id = NULL)
+	function get_products($product_id = NULL,$category_id = NULL)
 	{
 		$addition = isset($product_id)? "AND p.product_id = $product_id": NULL;
+		$category = isset($category_id)? "AND c.category_id = $category_id": NULL;
 		// $sql = "SELECT * FROM products WHERE product_id = $id";
 		$sql = "
 		SELECT 
@@ -60,6 +61,7 @@ class Products_model extends MY_Model
 		WHERE p.brand_id = b.brand_id
 		AND p.category_id = c.category_id
 		$addition
+		$category
 				";
 		$result = $this->db->query($sql);
 
@@ -119,26 +121,64 @@ class Products_model extends MY_Model
 		return $result->result_array();
 	}
 
+	function search_product($search)
+	{
+		$sql = "
+				SELECT 
+					p.product_id,
+					p.product_name,
+					p.description,
+					p.price,
+					p.status,
+					p.added_on,
+					p.color,
+					p.cover_image,
+					b.brand_name,b.brand_description,b.brand_id,
+					c.category_name,c.category_description,
+					c.category_id
+
+				FROM products p
+					JOIN brand b
+						ON p.brand_id = b.brand_id
+					JOIN category c
+						ON p.category_id = c.category_id
+				WHERE p.product_name LIKE '%$search%' OR brand_name LIKE '%$search%' OR p.color LIKE '%$search%' OR c.category_name  LIKE '%$search%'";
+		// echo $sql;die();
+		$result = $this->db->query($sql);
+
+		return $result->result_array();
+	}
+
 	function product_pagination()
 	{
 		$sql = "SELECT COUNT(`product_id`) AS `number` FROM `products`";
 
 		$result = $this->db->query($sql);
 		$result = $result->result_array();
-		// echo "<pre>";print_r($result[0]['number']);die();
+		// echo "<pre>";print_r($result[0]['number']);echo "<br />";
+		// echo intval(18/10);
+		// die();
 		$count = 0;
 		$page_count = 1;
 		for ($i=0; $i < $result[0]['number']; $i++) { 
-			$count = $count++;
+			$count++;
 		}
 		$grouping = $count/10;
+		// echo $grouping;echo "<br />";
 		if($grouping<1){
 			$pages = $page_count;
 		}
-		$pages = intval($grouping);
+		else{
+			$pages = intval($grouping);
+			if ($grouping>$pages) {
+				$pages++;
+			} else {
+				$pages;
+			}
+			
+		}
 		
-		
-		echo $pages;
+		return $pages;
 	}
 
 	

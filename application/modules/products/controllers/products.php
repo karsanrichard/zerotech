@@ -90,18 +90,21 @@ class Products extends MY_Controller
 	{
 		// $data['display_date'] = $this->getlatestaddition();
 		// $data['model_count'] = $this->m_models->getmodelcount();
-		$data['table'] = $this->createproducts('table');
-		$data['grid'] = $this->createproducts();
+		$products = $this->products_model->get_products();
+		$data['table'] = $this->createproducts($products,'table');
+		$data['grid'] = $this->createproducts($products);
 		$data['categories'] = $this->parent_categories_dropdown();
+		$data['pages'] = $this->product_pagination();
 		$data['content_view'] = 'products/products_v_all';
 		// echo "<pre>";print_r($data['grid']);die();
 		$this->template->call_backend_template($data);
 	}
 
-    public function createproducts($type = 'grid')
+    public function createproducts($products,$type = 'grid')
 	{
 		$products_section = '';
-		$products = $this->products_model->get_products();
+		
+		// echo "<pre>";print_r($products);die();
 		if($products)
 		{
 			switch ($type) {
@@ -113,7 +116,7 @@ class Products extends MY_Controller
                         <div class="ibox-content product-box">
 
                             <div class="product-imitation" style="padding:0px;">
-                            	<img src="'.$value['cover_image'].'" class="img-responsive" alt="Cover Image" />
+                            	<img src="'.$value['cover_image'].'" class="img-responsive" alt="Cover Image" style="width: 252.75px; height: 168.5px;" />
                             </div>
                             <div class="product-desc">
                                 <span class="product-price">
@@ -441,9 +444,29 @@ class Products extends MY_Controller
     	$this->template->call_frontend_template($data);
 	}
 
+	function ajax_grid($search_parameter='')
+	{
+		$search = $this->products_model->search_product($search_parameter);
+
+		$grid = $this->createproducts($search);
+		// echo "<pre>";print_r($grid);die();
+		echo json_encode($grid);
+	}
+
+	function ajax_category_filter($category_id)
+	{
+		$products = $this->products_model->get_products($product_id=NULL,$category_id);
+
+		$grid = $this->createproducts($products);
+		// echo "<pre>";print_r($grid);die();
+		echo json_encode($grid);
+	}
+
 	function product_pagination()
 	{
 		$pages = $this->products_model->product_pagination();
+		// echo $pages;
+		return $pages;
 	}
 
 }

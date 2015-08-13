@@ -11,6 +11,7 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.1/animate.min.css" rel="stylesheet">
 <link href="<?php echo ASSETS_URL;?>backend/css/style.css" rel="stylesheet">
+<link href="<?php echo ASSETS_URL;?>backend/css/plugins/steps/jquery.steps.css" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.7/js/jquery.dataTables.min.js"></script>
