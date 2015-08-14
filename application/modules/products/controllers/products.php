@@ -129,7 +129,7 @@ class Products extends MY_Controller
                                     '. $value['product_name'].'
                                 </a>
                                 <div class="small m-t-xs">
-                                    '.$value['description'].'
+                                    '.$this->truncateStringWords($value['description']).'
                                 </div>
                                 <div class="m-t text-righ">
 
@@ -453,11 +453,12 @@ class Products extends MY_Controller
 		echo json_encode($grid);
 	}
 
-	function ajax_category_filter($category_id)
+	function ajax_category_filter($category_id=0)
 	{
 		if($category_id == 0){$category_id = NULL;}
 		$products = $this->products_model->get_products($product_id=NULL,$category_id);
-
+		// echo "<pre>";print_r($products);
+		echo strlen($products[0]['description']);die();
 		$grid = $this->createproducts($products);
 		// echo "<pre>";print_r($grid);die();
 		echo json_encode($grid);
@@ -468,6 +469,48 @@ class Products extends MY_Controller
 		$pages = $this->products_model->product_pagination();
 		// echo $pages;
 		return $pages;
+	}
+
+	public function upload_product_photo()
+	{
+		$pictures_array = array();
+		$ds = '/';
+		$store_folder = 'assets/product_images';
+		if(!empty($_FILES))
+		{
+			foreach ($_FILES as $key => $value) {
+				foreach ($value as $k => $v) {
+					$counter = 0;
+					foreach ($v as $offset => $picture_detail) {
+						$pictures_array[$counter][$k] = $picture_detail;
+						$counter++;
+					}
+				}
+			}
+
+			foreach ($pictures_array as $key => $value) {
+				$tempFile = $value['tmp_name'];
+				$targetPath = $store_folder . $ds;
+				$targetFile = $targetPath . $value['name'];
+				move_uploaded_file($tempFile, $targetFile);
+
+				// $dimensions = $this->upload->getimagedimensions($targetFile);
+				// $exists = $this->upload->checkifsizeexists($dimensions['dimensions']);
+
+				// if (!$exists) {
+				// 	$size_id = $this->upload->createnewsize($dimensions['dimensions']);
+				// }
+				// else
+				// {
+				// 	$size_id = $exists['size_id'];
+				// }
+
+				$product_id = $_POST['product_id'];
+
+				$upload = $this->products_model->addimages(base_url() . $targetFile, $product_id);
+
+			}
+		}
 	}
 
 }

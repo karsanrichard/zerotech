@@ -181,6 +181,14 @@ class Products_model extends MY_Model
 		return $pages;
 	}
 
+	function addimages($path, $product_id)
+	{
+		$sql = "INSERT INTO `product_images` (`product_id`,`path`) VALUES ('$product_id','$path')";
+
+		$result = $this->db->query($sql);
+		return $result;
+	}
+
 	
 }
 

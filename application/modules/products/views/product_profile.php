@@ -84,9 +84,9 @@
 					<h5>Upload Pictures to <?php echo ucwords(strtolower($product_details[0]['product_name'])); ?>'s Profile</h5>&nbsp;&nbsp;<a id = "upload_reject" class = "">Go back to photos</a>
 				</div>
 				<div class="ibox-content">
-				<form id="my-awesome-dropzone" class="dropzone" action="<?php echo base_url(); ?>models/upload_model_photo" enctype="multipart/form-data">
+				<form id="my-awesome-dropzone" class="dropzone" action="<?php echo base_url(); ?>products/upload_product_photo" enctype="multipart/form-data">
 					<div class="dropzone-previews"></div>
-					<input type = "hidden" value = "<?php echo $product_details[0]['product_id']; ?>" name = "modelid" />
+					<input type = "hidden" value = "<?php echo $product_details[0]['product_id']; ?>" name = "product_id" />
 					<input type = "hidden" value = "<?php echo $product_details[0]['product_name']; ?>" name = "model_first_name" />
 					<button type="submit" class="btn btn-success pull-right"><i class = "fa fa-upload"></i>&nbsp;Upload Photos!</button>
 				</form>
