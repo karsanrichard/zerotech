@@ -1,5 +1,5 @@
 <?php 
-class Admin_model extends MX_Controller
+class Admin_model extends MY_Model
 {
 	function __construct()
     {
@@ -33,4 +33,3 @@ class Admin_model extends MX_Controller
 		return $result->result_array();
 	}
 }
- ?>

@@ -52,4 +52,12 @@ class M_user extends MY_Model
 
 		return $query;
 	}
+
+	function get_user_details()
+	{
+		$query = $this->db->get('customer');
+		$result = $query->result();
+
+		return $result;
+	}
 }

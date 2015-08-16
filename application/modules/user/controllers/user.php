@@ -103,4 +103,34 @@ class User extends MY_Controller
 			redirect(base_url() . 'user/login');
 		}
 	}
+
+	function create_user_table()
+	{
+		$user_table = '';
+		$user_details = $this->M_user->get_user_details();
+		$status_column = '';
+		if ($user_details) {
+			$number = 1;
+			foreach ($user_details as $user) {
+				if ($user->active == 1) {
+					$status_column = '<td><span class = "label label-primary">Active</span><a href = "#" style = "color: red;"><i class = "fa fa-times"></i></a></td>';
+				}
+				else
+				{
+					$status_column = '<td><span class = "label label-danger">Not Active</span><a href = "#" style = "color: green;"><i class = "fa fa-check"></i></a></td>';
+				}
+				$user_table .= "<tr>
+					<td>{$number}</td>
+					<td>{$user->first_name}</td>
+					<td>{$user->last_name}</td>
+					<td>{$user->other_names}</td>
+					<td>{$user->email_address}</td>
+					{$status_column}
+				</tr>";
+				$number++;
+			}
+		}
+
+		return $user_table;
+	}
 }
