@@ -77,7 +77,7 @@
 
                                 </fieldset>
                                 <h1>Product Details</h1>
-                                <fieldset>
+                                <fieldset style="position: relative;">
                                     <!-- <h2>Profile Information</h2> -->
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -105,7 +105,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                           <div class = "image-holder" id = 'imagePreview' style = ""></div>
+                                           <div class = "image-holder" id = 'imagePreview' style=""></div>
                                             <div class="form-group"><label class="col-sm-3 control-label">Cover Photo: </label>
 
                                                 <div class="col-sm-9"><input type = "file" class = "form-control" name = "cover" id = "uploadImage" required/></div>
@@ -191,7 +191,7 @@
 
             $('#category').change(function(){
                 id = $(this).val();
-                console.log(id);
+                // console.log(id);
                     if (id == 4) {
                         $('#sub').hide();
                         $('#sub').attr('value', '4');
@@ -212,8 +212,8 @@
                 
             });
 
-                    width = $('.image-holder').width();
-        height = width - 150;
+        width = $('.image-holder').width();
+        height = width + 100;
         width = height;
         $('.image-holder').height(height);
         $('.image-holder').width(width);

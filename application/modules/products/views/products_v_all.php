@@ -1,5 +1,11 @@
       <style type="text/css">
       #filters { margin-left: 1em; margin-bottom: 1em;}
+      .pagination {
+            display: inherit;
+            padding-left: 0;
+            margin: 0px; 
+            border-radius: 0px;
+      }
       </style>
        <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
@@ -32,29 +38,23 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="input-group m-b" id="pagination">
-                <div class="input-group-btn">
-                    <button data-toggle="" id = "" class="btn btn-info" type="button"><span class="caret"></span>Previous</button>
-                </div>
-                <button data-toggle="" id = "" class="btn btn-info" type="button">Pagination</button>
-                <button data-toggle="" id = "" class="btn btn-info" type="button"><span class="caret"></span>Next</button>
-            </div>
+            <ul id="pagination-demo" class="pagination pagination-sm"></ul>
         </div>
         <div class="col-md-4">
             <div class="input-group m-b">
                 <div class="input-group-btn">
                     <button data-toggle="table" id = "toggler" class="btn btn-danger" type="button">Toggle view</button>
                 </div>
-                <form>
-                 <input type="text" class="form-control" placeholder="Search Product">
-                </form>
+                <!-- <form method="post"> -->
+                 <input type="text" class="form-control" placeholder="Search Product" id="search_p" name="search_p">
+                <!-- </form> -->
             </div>
         </div>
         
     </div>
 
     <div class = "row" id = "models-container">
-        <div class="ibox float-e-margins"  id = 'product-table'>
+        <div class="ibox float-e-margins"  id = 'product-table' style="margin-left: 1em; margin-right: 1em;">
             <div class="ibox-title">
                 <h5>Products </h5> <span class="label label-primary">P+</span>
             <div class="ibox-tools">
@@ -99,14 +99,16 @@
         <div id = "product-grid">
             <?php echo $grid; ?>
         </div>
+        </div>
     </div>
+   
 
 
 </div>
 <script>
     $(document).ready(function(){
         $('table').dataTable();
-
+        $('#category').append('<option value="0">All</option>');
         $('#product-table').hide();
         $('#product-grid').show();
        // getpagemodels('grid');
@@ -122,7 +124,9 @@
                 $('#navigation-to').text('Grid');
                 $('#product-table').show();
                 $('#product-grid').hide();
-                $('#pagination').hide();
+                $('#pagination-demo').hide();
+                $('#search_p').attr("disabled", "true");
+                $('#category').attr("disabled", "true");
             }
             else
             {
@@ -132,8 +136,52 @@
                 $('#navigation-to').text('Table');
                 $('#product-table').hide();
                 $('#product-grid').show(); 
-                $('#pagination').show();   
+                $('#pagination-demo').show();
+                $('#search_p').removeAttr("disabled");
+                $('#category').removeAttr("disabled");  
             }
         });
+
+        $('#search_p').keyup(function(){
+            search_ = $(this).val();
+            // console.log(search_);
+            $.get('<?php echo base_url();?>products/ajax_grid/'+search_, function(data){
+                obj = jQuery.parseJSON(data);
+                $('#product-grid').html(obj);
+                $(this).attr('data-toggle', 'table');
+                $('#toggle-icon').removeClass('fa-th');
+                $('#toggle-icon').addClass('fa-table');
+                $('#navigation-to').text('Table');
+                $('#product-table').hide();
+                $('#product-grid').show(); 
+                $('#pagination-demo').show();
+                $('#search_p').removeAttr("disabled");  
+            });
+        });
+
+        $('#category').on('change', function(){
+            category = $(this).val();
+            // console.log(category);
+            $.get('<?php echo base_url();?>products/ajax_category_filter/'+category, function(data){
+                 obj = jQuery.parseJSON(data);
+                $('#product-grid').html(obj);
+                $(this).attr('data-toggle', 'table');
+                $('#toggle-icon').removeClass('fa-th');
+                $('#toggle-icon').addClass('fa-table');
+                $('#navigation-to').text('Table');
+                $('#product-table').hide();
+                $('#product-grid').show(); 
+                $('#pagination-demo').show();
+                $('#search_p').removeAttr("disabled");
+            });
+        });
+
+        $('#pagination-demo').twbsPagination({
+            totalPages: "<?php echo $pages;?>",
+            visiblePages: "4"
+            // onPageClick: function (event, page) {
+            //     $('#page-content').text('Page ' + page);
+            // }
+    });
    });
 </script>

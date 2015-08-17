@@ -30,8 +30,14 @@
 
 <!-- ChartJS-->
 <script src="<?php echo ASSETS_URL;?>backend/js/plugins/chartJs/Chart.min.js"></script>
+<script src="<?php echo ASSETS_URL;?>backend/js/plugins/staps/jquery.steps.min.js"></script>
+<!-- Jquery Validate -->
+<script src="<?php echo ASSETS_URL;?>backend/js/plugins/validate/jquery.validate.min.js"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 <!-- Toastr -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+<!-- twbsPagination -->
+<script type='text/javascript' src="https://esimakin.github.io/twbs-pagination/js/jquery.twbsPagination.js"></script>
+<script type='text/javascript' src="<?php echo ASSETS_URL;?>backend/js/jquery.twbsPagination.js"></script>
