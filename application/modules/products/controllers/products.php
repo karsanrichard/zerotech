@@ -466,7 +466,7 @@ class Products extends MY_Controller
 
 	function product_pagination()
 	{
-		$pages = $this->products_model->product_pagination();
+		$pages = $this->products_model->get_products();
 		// echo $pages;
 		return $pages;
 	}
@@ -493,17 +493,6 @@ class Products extends MY_Controller
 				$targetPath = $store_folder . $ds;
 				$targetFile = $targetPath . $value['name'];
 				move_uploaded_file($tempFile, $targetFile);
-
-				// $dimensions = $this->upload->getimagedimensions($targetFile);
-				// $exists = $this->upload->checkifsizeexists($dimensions['dimensions']);
-
-				// if (!$exists) {
-				// 	$size_id = $this->upload->createnewsize($dimensions['dimensions']);
-				// }
-				// else
-				// {
-				// 	$size_id = $exists['size_id'];
-				// }
 
 				$product_id = $_POST['product_id'];
 
