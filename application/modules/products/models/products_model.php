@@ -213,7 +213,7 @@ class Products_model extends MY_Model
 		if(isset($category_id)){$this->db->where('category_id', $category_id);}
 		$query = $this->db->get("category");
 
-		$result = $query->result();
+		$result = $query->row();
 
 		return $result;
 	}

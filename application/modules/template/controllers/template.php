@@ -14,6 +14,10 @@ class Template extends MY_Controller{
     }
     
     function call_frontend_template($data = NULL, $type = 'frontend'){
+        $categories = $this->m_template->get_categories();
+        $data['title'] = "frontend";
+        $data['category_listing_select'] = $this->create_category_listing($categories, 'select');
+        $data['category_menu'] = $this->create_category_listing($categories, 'menu');
         (!isset($type)) ? $this->load->view('template/material_test', $data) : $this->load->view('template/frontend', $data);
     }
     

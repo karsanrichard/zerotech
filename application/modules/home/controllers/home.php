@@ -79,7 +79,7 @@ class Home extends MY_Controller{
     	if ($categories) {
     		foreach ($categories as $key => $value) {
     			$listing .= "<li>
-	                <a href='#'' title='{$value->category_name}'>
+	                <a href='". base_url() . "products/category/{$value->category_id}' title='{$value->category_name}'>
 	                    <span class='text'>{$value->category_name}</span>
 	                </a>
 	            </li>";
@@ -101,7 +101,7 @@ class Home extends MY_Controller{
     		foreach ($sub_categories as $key => $value) {
     			$sub_category_listing = $this->create_sub_category_listing($value->category_id);
     			$listing .= "<li>
-	                <a href='#'' title='{$value->category_name}'>
+	                <a href='". base_url() . "products/category/{$value->category_id}' title='{$value->category_name}'>
 	                    <span class='text'>{$value->category_name}</span>
 	                </a>
 	            </li>";
