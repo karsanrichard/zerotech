@@ -373,6 +373,7 @@ class Products extends MY_Controller
 			$salenda .= '<div class = "row">';
 		}
 		$products_img = $this->products_model->get_product_image($value['product_id']);
+		$encrypted_product_id = $this->encrypt->encode($value['product_id']);
 // echo "<pre>";print_r($products_img);die();
 			$salenda .= '
 			<div class="col-md-3">
@@ -397,7 +398,7 @@ class Products extends MY_Controller
                                     '.$value['description'].'
                                 </div>
 	                        <div class="m-t text-righ">
-	                            <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+	                            <a href="'.base_url().'shop/product/'.$value['product_id'].'" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
 	                            <a href="#"><i style = "float:right;" class = "ion ion-bag fa-2x"></i></a>
 	                        </div>
 	                    </div>
@@ -513,5 +514,72 @@ class Products extends MY_Controller
 		}
 	}
 
+
+	function product($product_id)
+	{
+	}
+
+	function category($category_id)
+	{
+		$category_details = "";
+		$category_details = $this->products_model->get_category_details($category_id);
+		$data['category_details'] = ($category_details) ? $category_details : "No Data Found";
+		$data['product_listing'] = $this->create_products_listing($category_id);
+		$data['title'] = ($category_details) ? $category_details->category_name : "No such category";
+		$data['content_view'] = 'products/customer_products_v';
+		$this->template->call_frontend_template($data);
+	}
+
+	function create_products_listing($category_id = NULL)
+	{
+		$list = "";
+		$products = $this->products_model->get_products_by_category_customer($category_id);
+		if ($products) {
+			foreach ($products as $key => $value) {
+				$list .= '<li class="product col-xs-12 col-sm-6">
+						<div class="product-container">
+							<div class="inner row">
+								<div class="product-left col-sm-6">
+									<div class="product-thumb">
+										<a class="product-img" href="#"><img src="'.$value->cover_image.'" alt="Product"></a>
+										<a title="Quick View" href="#" class="btn-quick-view">Quick View</a>
+									</div>
+								</div>
+								<div class="product-right col-sm-6">
+									<div class="product-name">
+										<a href="#">'.$value->product_name.'</a>
+									</div>
+									<div class="price-box">
+										<span class="product-price">Ksh. '.$value->price.'</span>
+									</div>
+									<div class="product-star">
+	                                    <i class="fa fa-star"></i>
+	                                    <i class="fa fa-star"></i>
+	                                    <i class="fa fa-star"></i>
+	                                    <i class="fa fa-star"></i>
+	                                    <i class="fa fa-star-half-o"></i>
+	                                </div>
+	                                <div class="desc">'.$value->description.'</div>
+	                                <div class="product-button">
+	                                	<a class="btn-add-wishlist" title="Add to Wishlist" href="#">Add Wishlist</a>
+	                                	<a class="btn-add-comparre" title="Add to Compare" href="#">Add Compare</a>
+	                                	<a class="button-radius btn-add-cart" title="Add to Cart" href="'.base_url().'">Buy<span class="icon"></span></a>
+	                                </div>
+								</div>
+							</div>
+						</div>
+					</li>';
+			}
+		}
+		else
+		{
+			$list .= "<center><p style = 'font-weight: bold;'>Sorry, There are no products to display here</p></center>";
+		}
+
+		return $list;
+	}
+
+	function brand($brand_id)
+	{}
 }
 ?>

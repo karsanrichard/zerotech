@@ -189,7 +189,34 @@ class Products_model extends MY_Model
 		return $result;
 	}
 
-	
+	public function get_product_by_id($product_id)
+	{
+		$query = $this->db->get_where('products', array('product_id' => $product_id));
+		$result = $query->row();
+
+		return $result;
+	}
+
+	public function get_products_by_category_customer($category_id)
+	{
+		$query = $this->db->query("SELECT p.*, c.category_name FROM products p
+			JOIN category c ON p.category_id = c.category_id
+			WHERE c.category_id = {$category_id}");
+
+		$result = $query->result();
+
+		return $result;
+	}
+
+	public function get_category_details($category_id)
+	{
+		if(isset($category_id)){$this->db->where('category_id', $category_id);}
+		$query = $this->db->get("category");
+
+		$result = $query->result();
+
+		return $result;
+	}
 }
 
 ?>

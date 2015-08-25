@@ -34,12 +34,17 @@ class User extends MY_Controller
 		$password = $this->hash->password($this->input->post('password'));
 
 		$inserted = $this->M_user->add_user([
+			'email_address' => $this->input->post('email_address'),
+			'active_hash' => $identifier,
+			'password' => $password,
+			'user_type_id' => 2
+		]);
+
+		$inserted_customer = $this->M_user->add_customer([
 			'first_name' => $this->input->post('first_name'),
 			'last_name' => $this->input->post('last_name'),
 			'other_names' => $this->input->post('othernames'),
-			'email_address' => $this->input->post('email_address'),
-			'active_hash' => $identifier,
-			'password' => $password
+			'user_id' => mysql_insert_id()
 		]);
 
 		$data['first_name'] = $this->input->post('first_name');
@@ -95,7 +100,13 @@ class User extends MY_Controller
 				'customer_id' => $user->id,
 				'is_logged_in' => TRUE
 			]);
-			redirect(base_url() . 'home');
+			if($user->user_type_id == 1)
+			{
+
+			}
+			else if($user->user_type_id == 2){
+				redirect(base_url() . 'home');
+			}
 		}
 		else
 		{

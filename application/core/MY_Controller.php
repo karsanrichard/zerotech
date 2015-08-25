@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+error_reporting(0);
 
 use RandomLib\Factory as RandomLib;
 

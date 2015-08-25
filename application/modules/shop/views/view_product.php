@@ -1,0 +1,1 @@
+<?php $this->load->view('template/includes/shop_product'); ?>

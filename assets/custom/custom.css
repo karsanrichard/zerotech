@@ -1,11 +1,16 @@
-body
+html,body
 {
 	font-family: 'Noto Sans', sans-serif;
 	display: flex;
-	min-height: 100vh;
+	height:100%;
 	flex-direction: column;
 }
 
+/*div.wrapper
+{
+    min-height:100%;
+    position:relative;
+}*/
 div.top-nav
 {
 	height: 27px;
@@ -139,6 +144,10 @@ a.item-anchor:hover
 }
 footer.page-footer {
 	background-color: #03A9F4;
+    /*position:absolute;
+    bottom:0;
+    left: 0;
+    width: 100%;*/
 }
 
 ul.share-buttons{
@@ -329,4 +338,12 @@ a.cd-nav-item
 #result
 {
     text-align: center;
+}
+
+.cd-header-buttons {
+    top: -20px !important;
+}
+
+.cd-primary-nav.nav-is-visible {
+    z-index: 55 !important;
 }
