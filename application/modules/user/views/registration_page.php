@@ -1,66 +1,104 @@
+<style type="text/css">
+	legend
+	{
+		margin-top: 25px;
+		color: #5A88CA;
+	}
+
+	input:hover, input:focus
+	{
+		border-color: #5A88CA;
+	}
+
+	.input-field
+	{
+		margin-bottom: 10px;
+	}
+</style>
 <div class = "container">
-	<h5>User Registration</h5>
+	<div class = "row">
+		<h1 class="page-title" style = "margin-bottom: 15px;color:#5A88CA;">User Registration</h1>
 
-	<form method = "POST" action="<?php echo base_url(); ?>user/complete_registration">
-		<div class = "row">
-			<div class="col s12">
-				<div class = "row">
-					<div class = "input-field col s6">
-						<input id="first_name" type="text" class="validate" name = "first_name">
-						<label for="first_name">First Name *</label>
-					</div>
-					<div class = "input-field col s6">
-						<input id="last_name" type="text" class="validate" name = "last_name">
-						<label for="last_name">Last Name *</label>
+		<form method = "POST" action="<?php echo base_url(); ?>user/complete_registration">
+			<legend>Customer Information</legend>
+			<div class = "row">
+				<div class="col-md-12">
+					<div class = "row">
+						<div class = "input-field col-sm-6">
+							<label for="first_name">First Name *</label>
+							<input id="first_name" type="text" name = "first_name" required>
+						</div>
+						<div class = "input-field col-sm-6">
+							<label for="last_name">Last Name *</label>
+							<input id="last_name" type="text" class="validate" name = "last_name" required>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class = "row">
-			<div class="input-field col s12">
-				<input id="othernames" type="text" class="validate" name = "othernames">
-				<label for="othernames">Other Names</label>
-			</div>
-		</div>
-
-		<div class = "row">
-			<div class="col s12">
-				<div class = "row">
-					<div class = "input-field col s6">
-						<input id="email_address" type="email" class="validate" name = "email_address">
-						<label for="first_name">Email Address *</label>
-					</div>
-					<div class = "input-field col s6">
-						<input id="re_enter_email" type="email" class="validate" name = "re_enter_email">
-						<label for="re_enter_email">Re-Enter Email *</label>
+			<div class = "row">
+				<div class="col-md-12">
+					<div class = "row">
+						<div class = "input-field col-sm-6">
+							<label for="othernames">Other Names</label>
+							<input id="othernames" type="text" name = "othernames" required>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class = "row">
-			<div class="col s12">
-				<div class = "row">
-					<div class = "input-field col s6">
-						<input id="email_address" type="password" class="validate" name = "password">
-						<label for="first_name">Password *</label>
-					</div>
-					<div class = "input-field col s6">
-						<input id="re_enter_email" type="password" class="validate" name = "confirm_password">
-						<label for="re_enter_email">Confirm Password*</label>
+			<legend>Contact Information</legend>
+			<div class = "row">
+				<div class="col-md-12">
+					<div class = "row">
+						<div class = "input-field col-md-6">
+							<label for="first_name">Email Address *</label>
+							<input id="email_address" type="text" name = "email_address" required>
+						</div>
+						<div class = "input-field col-md-6">
+							<label for="re_enter_email">Re-Enter Email *</label>
+							<input id="re_enter_email" type="text" class="validate" name = "re_enter_email" required>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="g-recaptcha" data-sitekey="6LeraAoTAAAAAKdEXbPwFOinecD9f0bB4m-q421e"></div>
-		<div class = "row">
-			<div class = "col s12">
-				<button class = "btn waves-effect waves-light right">Complete Registration</button>
+			<div class = "row">
+				<div class="col-md-12">
+					<div class = "row">
+						<div class = "input-field col-md-6">
+							<label for="phone_no">Phone Number(Optional)</label>
+							<input id="phone_no" type="text" name = "phone_no">
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-	</form>
+
+			<legend>Security Information</legend>
+			<div class = "row">
+				<div class="col-md-12">
+					<div class = "row">
+						<div class = "input-field col-md-6">
+							<label for="first_name">Password *</label>
+							<input id="email_address" type="password" class="validate" name = "password" required>
+						</div>
+						<div class = "input-field col-md-6">
+							<label for="re_enter_email">Confirm Password*</label>
+							<input id="re_enter_email" type="password" class="validate" name = "confirm_password" required>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class = "row" style="margin-top: 15px;">
+				<div class = "col-md-12">
+					<div class = "row">
+						<div class = "input-field col-md-12">
+							<button class = "button">Complete Registration</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
-
-<script src='https://www.google.com/recaptcha/api.js'></script>

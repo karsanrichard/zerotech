@@ -24,6 +24,7 @@
             overflow: auto;
         }
     </style>
+    <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/jquery/jquery-1.11.2.min.js"></script>
 </head>
 <body>
 
@@ -175,8 +176,8 @@
                                 <ul class="nav navbar-nav">
                                     <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
                                     <?php echo $category_menu; ?>
-                                    <li><a href="category-grid.html">About Us</a></li>
-                                    <li><a href="blog.html">Contact us</a></li>
+                                    <li><a href="<?php echo base_url(); ?>about">About Us</a></li>
+                                    <li><a href="<?php echo base_url(); ?>contact">Contact us</a></li>
                                 </ul>
                             </div><!--/.nav-collapse -->
                         </div>
@@ -266,7 +267,6 @@
     </footer>
     <!-- ./footer -->
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
-    <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/jquery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/owl.carousel/owl.carousel.min.js"></script>
