@@ -10,6 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans|Cabin|Open+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="<?php echo ASSETS_URL ?>product/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="<?php echo ASSETS_URL ?>product/css/style.css"> <!-- Resource style -->
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>custom/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>custom/products.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>custom/custom.css">
@@ -27,100 +29,148 @@
 	{
 		font-size: 12px;
 	}
+	a:hover, a:active
+	{
+		text-decoration: none !important;
+	}
 </style>
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body class = "nav-on-left">
-	<div class = "top-nav">
-		<div class = "">
-			<ul class = "hide-on-med-and-down">
-				<li class = ""><a href="#">MY ACCOUNT</a></li>
-				<li><a href = "#">MY WISHLIST (0)</a></li>
-				<li><a href = "#">CHECKOUT</a></li>
-				<li><?php if(!$this->session->userdata('is_logged_in')){?><a href = "<?php echo base_url(); ?>user/login">LOGIN OR REGISTER</a><?php } else { ?>Welcome back, <a href = "<?php echo base_url(); ?>user/user_account/<?php echo $this->session->userdata('customer_id');?>">LOGOUT<!-- <?php echo $this->session->userdata('customer_id'); ?> --></a><?php } ?></li>
-			</ul>
+	<div class = "wrapper">
+		<div class = "top-nav">
+			<div class = "">
+				<ul class = "hide-on-med-and-down">
+					<li class = ""><a href="#">MY ACCOUNT</a></li>
+					<li><a href = "#">MY WISHLIST (0)</a></li>
+					<li><a href = "#">CHECKOUT</a></li>
+					<li><?php if(!$this->session->userdata('is_logged_in')){?><a href = "<?php echo base_url(); ?>user/login">LOGIN OR REGISTER</a><?php } else { ?>Welcome back, <a href = "<?php echo base_url(); ?>user/user_account/<?php echo $this->session->userdata('customer_id');?>">LOGOUT<!-- <?php echo $this->session->userdata('customer_id'); ?> --></a><?php } ?></li>
+				</ul>
 
-			<div class = "top-nav-right">
-				<div id="mini-cart" class="dropdown">
+				<div class = "top-nav-right">
+					<div id="mini-cart" class="dropdown">
 
-				<span class="dropdown-toggle hide-below-768" title="You have no items in your shopping cart.">
-					<span class="my-bag">MY BAG: </span>
-					<a class="summary" href="javascript:void(0)" title="View all items in your shopping cart"><span class="amount"><span>1 ITEM(S)</span></span></a>
-				</span>
-				<span class="dropdown-toggle show-below-768" title="View Cart">
-					<a class="summary" href="javascript:void(0)" title="View all items in your shopping cart">
-					<span class="subtotal">
-						<span class="price">$162.00</span>
+					<span class="dropdown-toggle hide-below-768" title="You have no items in your shopping cart.">
+						<span class="my-bag">MY BAG: </span>
+						<a class="summary" href="javascript:void(0)" title="View all items in your shopping cart"><span class="amount"><span>1 ITEM(S)</span></span></a>
 					</span>
-					</a>
-				</span>
+					<span class="dropdown-toggle show-below-768" title="View Cart">
+						<a class="summary" href="javascript:void(0)" title="View all items in your shopping cart">
+						<span class="subtotal">
+							<span class="price">$162.00</span>
+						</span>
+						</a>
+					</span>
 
-				<div class="dropdown-menu" style="display: none;">
-				<div class="empty">You have no items in your shopping cart.</div>
-				</div>
+					<div class="dropdown-menu" style="display: none;">
+					<div class="empty">You have no items in your shopping cart.</div>
+					</div>
 
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<header class="cd-main-header">
-		<a class="cd-logo" href="<?php echo base_url(); ?>"><img src="<?php echo ASSETS_URL; ?>custom/api_logo.png" alt="Logo"></a>
+		<header class="cd-main-header">
+			<a class="cd-logo" href="<?php echo base_url(); ?>"><img src="<?php echo ASSETS_URL; ?>custom/api_logo.png" alt="Logo"></a>
 
-		<ul class="cd-header-buttons">
-			<li><a class="cd-search-trigger" href="#cd-search">Search<span></span></a></li>
-			<li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
-		</ul> <!-- cd-header-buttons -->
-	</header>
-	<main class="cd-main-content">
-		<?php $this->load->view($content_view); ?>
-		<!-- footer -->
-		<footer class="page-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col l6 s12">
-						<h5 class="white-text">Zerotech Shop</h5>
-						<p class="grey-text text-lighten-4">Zerotech shop is pleased to have you onboard. We offer the best in latest technology and want the best for our customers</p>
-					</div>
-					<div class="col l3 s12">
-						<h5 class="white-text">SITEMAP</h5>
-						<ul>
-							<li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Shopping Cart</a></li>
-						</ul>
-					</div>
-					<div class="col l3 s12">
-						<h5 class="white-text">Social media</h5>
-						<ul class="share-buttons">
-							<li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Facebook.png"></a></li>
-							<li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Twitter.png"></a></li>
-							<li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Google+.png"></a></li>
-							<li><a href="http://pinterest.com/pin/create/button/?url=&description=" target="_blank" title="Pin it"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Pinterest.png"></a></li>
-							<li><a href="mailto:?subject=&body=:%20" target="_blank" title="Email"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Email.png"></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="footer-copyright">
+			<ul class="cd-header-buttons">
+				<li><a class="cd-search-trigger" href="#cd-search">Search<span></span></a></li>
+				<li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
+			</ul> <!-- cd-header-buttons -->
+		</header>
+		<main class="cd-main-content">
+			<?php if(isset($content_view)){$this->load->view($content_view); ?>
+			<!-- footer -->
+			<footer class="page-footer">
 				<div class="container">
-					&copy;&nbsp;<?php echo date("Y");?> Zerocorp Inc.
-
-					<p class = "right">
-						<img src="https://www.merchantequip.com/image/?logos=v|m|d|p|g|me|az|wu|vbv|msc&height=32" alt="Merchant Equipment Store Credit Card Logos" />
-					</p>
+					<div class="row">
+						<div class="col l6 s12">
+							<h5 class="white-text">Zerotech Shop</h5>
+							<p class="grey-text text-lighten-4">Zerotech shop is pleased to have you onboard. We offer the best in latest technology and want the best for our customers</p>
+						</div>
+						<div class="col l3 s12">
+							<h5 class="white-text">SITEMAP</h5>
+							<ul>
+								<li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">Shopping Cart</a></li>
+							</ul>
+						</div>
+						<div class="col l3 s12">
+							<h5 class="white-text">Social media</h5>
+							<ul class="share-buttons">
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Facebook.png"></a></li>
+								<li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Twitter.png"></a></li>
+								<li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Google+.png"></a></li>
+								<li><a href="http://pinterest.com/pin/create/button/?url=&description=" target="_blank" title="Pin it"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Pinterest.png"></a></li>
+								<li><a href="mailto:?subject=&body=:%20" target="_blank" title="Email"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Email.png"></a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
-		</footer>
-		<!-- footer -->
-		<div class="cd-overlay"></div>
-	</main>
+				<div class="footer-copyright">
+					<div class="container">
+						&copy;&nbsp;<?php echo date("Y");?> Zerocorp Inc.
+
+						<p class = "right">
+							<img src="https://www.merchantequip.com/image/?logos=v|m|d|p|g|me|az|wu|vbv|msc&height=32" alt="Merchant Equipment Store Credit Card Logos" />
+						</p>
+					</div>
+				</div>
+			</footer>
+			<!-- footer -->
+			<div class="cd-overlay"></div>
+			<?php }?>
+		</main>
+	</div>
 	<?php
 		if (isset($outside_main)) {
 			$this->load->view($outside_main);
-		}
 	?>
+	<!-- footer -->
+			<footer class="page-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col l6 s12">
+							<h5 class="white-text">Zerotech Shop</h5>
+							<p class="grey-text text-lighten-4">Zerotech shop is pleased to have you onboard. We offer the best in latest technology and want the best for our customers</p>
+						</div>
+						<div class="col l3 s12">
+							<h5 class="white-text">SITEMAP</h5>
+							<ul>
+								<li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+								<li><a class="grey-text text-lighten-3" href="#!">Shopping Cart</a></li>
+							</ul>
+						</div>
+						<div class="col l3 s12">
+							<h5 class="white-text">Social media</h5>
+							<ul class="share-buttons">
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Facebook.png"></a></li>
+								<li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Twitter.png"></a></li>
+								<li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Google+.png"></a></li>
+								<li><a href="http://pinterest.com/pin/create/button/?url=&description=" target="_blank" title="Pin it"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Pinterest.png"></a></li>
+								<li><a href="mailto:?subject=&body=:%20" target="_blank" title="Email"><img src="<?php echo ASSETS_URL; ?>images/flat_web_icon_set/color/Email.png"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright">
+					<div class="container">
+						&copy;&nbsp;<?php echo date("Y");?> Zerocorp Inc.
+
+						<p class = "right">
+							<img src="https://www.merchantequip.com/image/?logos=v|m|d|p|g|me|az|wu|vbv|msc&height=32" alt="Merchant Equipment Store Credit Card Logos" />
+						</p>
+					</div>
+				</div>
+			</footer>
+			<!-- footer -->
+			<div class="cd-overlay"></div>
+	<?php } ?>
 	<nav class="cd-nav">
 		<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
 			<li><a href="<?php echo base_url(); ?>" class = "selected">Home</a></li>
