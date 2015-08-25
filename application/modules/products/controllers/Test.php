@@ -16,16 +16,14 @@ function get_all_published_blogs($limits)
 function blog_list($page = 1)
 	{
 		$blog_posts = '';
-		$comments = 0;
 		$limits = ($page - 1)*10;
-		$blogs = $this->m_blog->get_all_published_blogs($limits);
+		$products = $this->products_model->get_products(NULL,NULL,$limits);
 
-		if ($blogs) {
+		if ($products) {
 			$counter = 0;
-			foreach ($blogs as $key => $value) {
+			foreach ($products as $key => $value) {
 				$counter++;
-				$comments = $this->comments->get_comment_count($value->blog_id)->verified;
-					if($value->blog_cover != NULL)
+				if($value->blog_cover != NULL)
 					{
 						
                     	$blog_posts .= '<div class="date-outer">

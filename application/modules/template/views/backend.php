@@ -280,7 +280,16 @@
 
             }, 1300);
 
-
+        var pathname = window.location.pathname; // Returns path only
+        var url      = window.location.href;
+        console.log(pathname);
+        console.log(url);
+        var res = url.split("/");
+        var array = new Array(res);
+        console.log(array[0][4]);
+        if (array[0][4] == 'admin') {
+            console.log('I got it baby');
+        };
 
         });
     </script>

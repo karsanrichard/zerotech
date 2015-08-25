@@ -86,15 +86,19 @@ class Products extends MY_Controller
 		}
     }
 
-    public function product_list()
+    public function product_list($page = 1)
 	{
 		// $data['display_date'] = $this->getlatestaddition();
 		// $data['model_count'] = $this->m_models->getmodelcount();
-		$products = $this->products_model->get_products();
+		$limits = ($page - 1)*10;
+		$offset = $limits+10;
+		// echo $limits."<br />";
+		$products = $this->products_model->get_products(NULL,NULL,$limits,$offset);
+		$data['pagination'] = $this->createpagination();
 		$data['table'] = $this->createproducts($products,'table');
 		$data['grid'] = $this->createproducts($products);
 		$data['categories'] = $this->parent_categories_dropdown();
-		$data['pages'] = $this->product_pagination();
+		// $data['pages'] = $this->product_pagination();
 		$data['content_view'] = 'products/products_v_all';
 		// echo "<pre>";print_r($data['grid']);die();
 		$this->template->call_backend_template($data);
@@ -464,12 +468,27 @@ class Products extends MY_Controller
 		echo json_encode($grid);
 	}
 
-	function product_pagination()
+	function createpagination($page = 1)
 	{
-		$pages = $this->products_model->get_products();
-		// echo $pages;
-		return $pages;
+		$pagination = '';
+		$blog_data = $this->products_model->get_products();
+		$noofblogs = count($blog_data);
+		$x = ceil($noofblogs / 10);
+		$pagination .= '<li class="disabled"><a href="#">«</a></li>';
+		for ($i= 1; $i <= $x; $i++) {
+			$disabled = $active = ''; 
+			if($page == $i)
+			{
+				$active = 'active';
+			}
+
+			$pagination .= '<li class = "'.$active.'"><a href = "'.base_url().'products/product_list/'.$i.'">'.$i.'</a></li>';
+		}
+		$pagination .= '<li><a href="#">»</a></li>';
+
+		return $pagination;
 	}
+
 
 	public function upload_product_photo()
 	{
