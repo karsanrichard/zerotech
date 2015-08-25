@@ -10,3 +10,4 @@ application/logs/*
 .htaccess
 application/config/*
 index.php
+*.jpg
