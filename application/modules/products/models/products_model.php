@@ -38,7 +38,7 @@ class Products_model extends MY_Model
 	// 	return $result->result_array();
 	// }
 
-	function get_products($product_id = NULL,$category_id = NULL)
+	function get_products($product_id = NULL,$category_id = NULL,$limits=0,$offset=100)
 	{
 		$addition = isset($product_id)? "AND p.product_id = $product_id": NULL;
 		$category = isset($category_id)? "AND c.category_id = $category_id": NULL;
@@ -62,7 +62,9 @@ class Products_model extends MY_Model
 		AND p.category_id = c.category_id
 		$addition
 		$category
+		 ORDER BY p.added_on DESC LIMIT " . $limits . ", ".$offset."
 				";
+		;
 		$result = $this->db->query($sql);
 
 		return $result->result_array();
@@ -188,6 +190,7 @@ class Products_model extends MY_Model
 		$result = $this->db->query($sql);
 		return $result;
 	}
+
 
 	public function get_product_by_id($product_id)
 	{

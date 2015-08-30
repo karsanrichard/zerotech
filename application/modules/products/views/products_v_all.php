@@ -7,6 +7,7 @@
             border-radius: 0px;
       }
       </style>
+      
        <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
                 <h2>Products</h2>
@@ -38,7 +39,8 @@
             </div>
         </div>
         <div class="col-md-4">
-            <ul id="pagination-demo" class="pagination pagination-sm"></ul>
+        <?php echo $pagination;?>
+            <!-- <ul id="pagination-demo" class="pagination pagination-sm"></ul> -->
         </div>
         <div class="col-md-4">
             <div class="input-group m-b">
@@ -177,11 +179,13 @@
         });
 
         $('#pagination-demo').twbsPagination({
-            totalPages: "<?php echo $pages;?>",
+            totalPages: "<?php echo count($pages);?>",
             visiblePages: "4"
             // onPageClick: function (event, page) {
             //     $('#page-content').text('Page ' + page);
             // }
     });
+
+        
    });
 </script>
