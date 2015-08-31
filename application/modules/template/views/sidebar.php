@@ -38,7 +38,7 @@
                      </li>
 
                      <li class="">
-                        <a href="<?php echo base_url().'index.php/orders' ?>"><i class="fa fa-hand-o-left"></i> <span class="nav-label">Orders</span></a>
+                        <a href="<?php echo base_url().'index.php/orders' ?>"><i class="fa fa-table"></i> <span class="nav-label">Orders</span></a>
                      </li>
 
                     <li>
