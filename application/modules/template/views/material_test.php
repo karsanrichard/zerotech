@@ -45,7 +45,7 @@
 					<li class = ""><a href="#">MY ACCOUNT</a></li>
 					<li><a href = "#">MY WISHLIST (0)</a></li>
 					<li><a href = "#">CHECKOUT</a></li>
-					<li><?php if(!$this->session->userdata('is_logged_in')){?><a href = "<?php echo base_url(); ?>user/login">LOGIN OR REGISTER</a><?php } else { ?>Welcome back, <a href = "<?php echo base_url(); ?>user/user_account/<?php echo $this->session->userdata('customer_id');?>">LOGOUT<!-- <?php echo $this->session->userdata('customer_id'); ?> --></a><?php } ?></li>
+					<li><?php if(!$this->session->userdata('is_logged_in')){?><a href = "<?php echo base_url(); ?>user/login">LOGIN OR REGISTER</a><?php } else { ?>Welcome back, <a href = "<?php echo base_url(); ?>user/user_account/<?php echo $this->session->userdata('user_id');?>">LOGOUT<!-- <?php echo $this->session->userdata('user_id'); ?> --></a><?php } ?></li>
 				</ul>
 
 				<div class = "top-nav-right">

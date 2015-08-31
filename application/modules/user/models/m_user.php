@@ -41,7 +41,8 @@ class M_user extends MY_Model
 			'users',
 			[
 				'email_address' => $email,
-				'active' => 1
+				'active' => 1,
+				'status' => 0
 			]
 		);
 
@@ -61,9 +62,9 @@ class M_user extends MY_Model
 
 	function get_user_details()
 	{
-		$query = $this->db->get('customer');
-		$result = $query->result();
-
+		// $query = $this->db->get('customer');
+		$result = $this->db->query('SELECT * FROM `customer` JOIN `users` ON `customer`.`user_id` = `users`.`user_id`');
+		$result = $result->result();
 		return $result;
 	}
 }
