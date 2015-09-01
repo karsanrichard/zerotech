@@ -22,7 +22,9 @@
 			<th>Last Name</th>
 			<th>Other Names</th>
 			<th>Email Address</th>
-			<th>Status</th>
+			<th>Confirmed Status</th>
+			<th>Active Status</th>
+			<th>Action</th>
 		</thead>
 		<tbody>
 			<?php echo $user_table; ?>

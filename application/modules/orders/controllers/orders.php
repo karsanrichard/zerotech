@@ -22,16 +22,16 @@ class Orders extends MY_Controller{
                 <td>".$data['phone_no']."</td>
                 <td>".$data['physical_address']."</td>
                 <td>".$data['postal_address']."</td>
-                <td><a class=\"btn btn-w-m btn-primary\" href=".base_url().'index.php/orders/order_details/'.$data['order_id'].">View Order Details</a></td>
+                <td><a class=\"btn btn-w-m btn-primary\" href=".base_url().'orders/order_details/'.$data['order_id'].">View Order Details</a></td>
             ";
 
             switch ($data['status']) {
                 case 1:
-                $generated_table .= "<td><a class=\"btn btn-w-m btn-danger\" href=".base_url().'index.php/orders/order_status/'.$data['order_id']."/2".">Reject</a></td>";
+                $generated_table .= "<td><a class=\"btn btn-w-m btn-danger\" href=".base_url().'orders/order_status/'.$data['order_id']."/2".">Reject</a></td>";
                     break;
                 
                 default:
-                $generated_table .= "<td><a class=\"btn btn-w-m btn-success\" href=".base_url().'index.php/orders/order_status/'.$data['order_id']."/1".">Approve</a></td>";
+                $generated_table .= "<td><a class=\"btn btn-w-m btn-success\" href=".base_url().'orders/order_status/'.$data['order_id']."/1".">Approve</a></td>";
                     break;
             }
             $generated_table.="</tr>";
@@ -100,7 +100,7 @@ class Orders extends MY_Controller{
         $query = "UPDATE orders SET status= $status WHERE order_id= $order_id";
         $this ->db->query($query);
 
-        redirect(base_url().'index.php/orders');
+        redirect(base_url().'orders');
     }
 
 }

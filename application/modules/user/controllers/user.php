@@ -12,7 +12,7 @@ class User extends MY_Controller
 		parent::__construct();
 		if($this->session->userdata('is_logged_in'))
 		{
-			redirect('home');
+			// redirect('home');
 		}
 	}
 
@@ -93,18 +93,23 @@ class User extends MY_Controller
 	function authenticate()
 	{
 		$user = $this->M_user->get_active_user($this->input->post('email_address'));
+		// echo "<pre>";print_r($user);die();
 
 		if($user && $this->hash->passwordCheck($this->input->post('password'), $user->password))
 		{
-			$this->session->set_userdata([
-				'customer_id' => $user->customer_id,
-				'is_logged_in' => TRUE
-			]);
 			if($user->user_type_id == 1)
 			{
-
+				$this->session->set_userdata([
+					'user_id' => $user->user_id,
+					'is_logged_in' => TRUE
+				]);
+				redirect(base_url() . 'admin');
 			}
 			else if($user->user_type_id == 2){
+				$this->session->set_userdata([
+					'user_id' => $user->user_id,
+					'is_logged_in' => TRUE
+				]);
 				redirect(base_url() . 'home');
 			}
 		}
@@ -139,15 +144,26 @@ class User extends MY_Controller
 	{
 		$user_table = '';
 		$user_details = $this->M_user->get_user_details();
+		// echo "<pre>";print_r($user_details);die();
+		$date = date('d');
+		// echo $date;
 		$status_column = '';
+		$confirmed_column = '';
 		if ($user_details) {
 			$number = 1;
 			foreach ($user_details as $user) {
 				if ($user->active == 1) {
-					$status_column = '<td><span class = "label label-primary">Active</span><a href = "#" style = "color: red;"><i class = "fa fa-times"></i></a></td>';
+					$confirmed_column = '<td><span class = "label label-primary">Confirmed</span><a href = "#" style = "color: red;"><i class = "fa fa-times"></i></a></td>';
+					$action_column = '<td><button class="btn btn-warning">Deactivate Account</button></td>';
 				}
 				else
 				{
+					$confirmed_column = '<td><span class = "label label-danger">Not Confrimed</span><a href = "#" style = "color: green;"><i class = "fa fa-check"></i></a></td>';
+					$action_column = '<td><a href="<?php echo base_url();?>user/delete/'.$user->user_id.'"><button class="btn btn-danger">Delete Account</button></a></td>';
+				}
+				if ($user->status == 0){
+					$status_column = '<td><span class = "label label-primary">Active</span><a href = "#" style = "color: red;"><i class = "fa fa-times"></i></a></td>';
+				}else{
 					$status_column = '<td><span class = "label label-danger">Not Active</span><a href = "#" style = "color: green;"><i class = "fa fa-check"></i></a></td>';
 				}
 				$user_table .= "<tr>
@@ -156,7 +172,9 @@ class User extends MY_Controller
 					<td>{$user->last_name}</td>
 					<td>{$user->other_names}</td>
 					<td>{$user->email_address}</td>
+					{$confirmed_column}
 					{$status_column}
+					{$action_column}
 				</tr>";
 				$number++;
 			}

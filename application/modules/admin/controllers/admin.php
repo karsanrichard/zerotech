@@ -4,6 +4,10 @@ class Admin extends MY_Controller{
     
     public function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('is_logged_in'))
+        {
+            redirect('home');
+        }
         $this->load->model("admin/admin_model");
 
         $this->load->module(
