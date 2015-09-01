@@ -127,7 +127,8 @@ class User extends MY_Controller
 		// echo "<pre>";print_r($user_details);die();
 		$date = date('d');
 		// echo $date;
-		echo "<pre>";print_r($user_details);die();
+		$delete_path = base_url().'user/delete';
+		// echo "<pre>";print_r($user_details);die();
 		$status_column = '';
 		$confirmed_column = '';
 		if ($user_details) {
@@ -140,7 +141,7 @@ class User extends MY_Controller
 				else
 				{
 					$confirmed_column = '<td><span class = "label label-danger">Not Confrimed</span><a href = "#" style = "color: green;"><i class = "fa fa-check"></i></a></td>';
-					$action_column = '<td><a href="<?php echo base_url();?>user/delete/'.$user->.'"><button class="btn btn-danger">Delete Account</button></a></td>';
+					$action_column = '<td><a href="'.$delete_path.'/'.$user->customer_id.'"><button class="btn btn-danger">Delete Account</button></a></td>';
 				}
 				if ($user->status == 0){
 					$status_column = '<td><span class = "label label-primary">Active</span><a href = "#" style = "color: red;"><i class = "fa fa-times"></i></a></td>';
@@ -162,5 +163,13 @@ class User extends MY_Controller
 		}
 
 		return $user_table;
+	}
+
+	function delete($id)
+	{
+		$sql = "DELETE FROM `customer` WHERE `customer_id` = '$id'";
+		$this->db->query($sql);
+
+		redirect('admin/user');
 	}
 }
