@@ -66,4 +66,16 @@ class M_user extends MY_Model
 
 		return $result;
 	}
+
+	function get_user_details_spec($user_id)
+	{
+		$query = $this->db->query("SELECT c.*, u.* FROM customer c
+			JOIN users u ON u.user_id = c.user_id
+			WHERE u.user_id = {$user_id}
+			LIMIT 1"
+		);
+
+		$result = $query->row();
+		return $result;
+	}
 }

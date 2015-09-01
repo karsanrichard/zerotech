@@ -197,11 +197,12 @@ class Products_model extends MY_Model
 		return $result;
 	}
 
-	public function get_products_by_category_customer($category_id)
+	public function get_products_by_category_customer($category_id, $sort_by = NULL)
 	{
+		$sorter = (isset($sort_by)) ? "ORDER BY $sort_by" : "";
 		$query = $this->db->query("SELECT p.*, c.category_name FROM products p
 			JOIN category c ON p.category_id = c.category_id
-			WHERE c.category_id = {$category_id}");
+			WHERE c.category_id = {$category_id} {$sorter}");
 
 		$result = $query->result();
 
@@ -212,6 +213,26 @@ class Products_model extends MY_Model
 	{
 		if(isset($category_id)){$this->db->where('category_id', $category_id);}
 		$query = $this->db->get("category");
+
+		$result = $query->row();
+
+		return $result;
+	}
+
+	public function get_category_product_counts($category_id)
+	{
+		$query = $this->db->query("SELECT count(product_id) as counted FROM products WHERE category_id = {$category_id}");
+		$result = $query->row();
+
+		return $result->counted;
+	}
+
+	public function get_product_category($product_id)
+	{
+		$query = $this->db->query("SELECT c.category_id, c.category_name FROM category c
+			JOIN products p ON p.category_id = c.category_id
+			WHERE p.product_id = {$product_id}
+			LIMIT 1");
 
 		$result = $query->row();
 

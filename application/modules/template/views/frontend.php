@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>frontend/assets/lib/owl.carousel/owl.carousel.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>frontend/assets/lib/jquery-ui/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>frontend/assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>frontend/assets/lib/easyzoom/easyzoom.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>frontend/assets/css/global.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>frontend/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_URL; ?>frontend/assets/css/responsive.css" />
@@ -271,6 +272,7 @@
     <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/owl.carousel/owl.carousel.min.js"></script>
     <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/easyzoom/easyzoom.js"></script>
     <!-- COUNTDOWN -->
     <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/countdown/jquery.plugin.js"></script>
     <script type="text/javascript" src="<?php echo ASSETS_URL; ?>frontend/assets/lib/countdown/jquery.countdown.js"></script>

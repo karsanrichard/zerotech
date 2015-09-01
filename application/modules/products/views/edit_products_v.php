@@ -34,7 +34,7 @@
 	            <center>
 	            <?php 
 	            	$attr = array( 'class' => "form-horizontal", $id = "product_edit_form"); 
-	            	$url = base_url().'index.php/products/update_details';
+	            	$url = base_url().'products/update_details';
 	            	echo form_open($url,$attr);
 	            ?>
 	                <!-- <form class="form-horizontal" id="product_edit" action="<?php echo base_url().'index.php/products/update_details'; ?>"> -->

@@ -523,19 +523,27 @@ class Products extends MY_Controller
 	{
 		$category_details = "";
 		$category_details = $this->products_model->get_category_details($category_id);
+		$data['category_list'] = $this->create_filter_sidebar($category_id);
 		$data['category_details'] = ($category_details) ? $category_details : "No Data Found";
-		$data['product_listing'] = $this->create_products_listing($category_id);
+		$data['category_id'] = $category_id;
 		$data['title'] = ($category_details) ? $category_details->category_name : "No such category";
 		$data['content_view'] = 'products/customer_products_v';
 		$this->template->call_frontend_template($data);
 	}
 
-	function create_products_listing($category_id = NULL)
+	function create_products_listing($listing_style = "list", $category_id = NULL, $type = "raw", $sort_by = "product_id ASC")
 	{
-		$list = "";
-		$products = $this->products_model->get_products_by_category_customer($category_id);
+		$sort_by = urldecode($sort_by);
+		$list = $grid = $list2 = "";
+		$products = $this->products_model->get_products_by_category_customer($category_id, $sort_by);
 		if ($products) {
+			$counter = 0;
 			foreach ($products as $key => $value) {
+				$counter++;
+				if($counter%2 == 1)
+				{
+					$list .= "<div class = 'row'>";
+				}
 				$list .= '<li class="product col-xs-12 col-sm-6">
 						<div class="product-container">
 							<div class="inner row">
@@ -569,17 +577,194 @@ class Products extends MY_Controller
 							</div>
 						</div>
 					</li>';
+				$grid .= '<li class="product col-xs-12 col-sm-4 col-md-3">
+						<div class="product-container">
+							<div class="inner">
+								<div class="product-left">
+									<div class="product-thumb">
+										<a class="product-img" href="#"><img src="'.$value->cover_image.'" alt="Product"></a>
+										<a title="Quick View" href="#" class="btn-quick-view">Quick View</a>
+									</div>
+								</div>
+								<div class="product-right">
+									<div class="product-name">
+										<a href="#">'.$value->product_name.'</a>
+									</div>
+									<div class="price-box">
+										<span class="product-price">'.$value->price.'</span>
+									</div>
+									<div class="product-star">
+	                                    <i class="fa fa-star"></i>
+	                                    <i class="fa fa-star"></i>
+	                                    <i class="fa fa-star"></i>
+	                                    <i class="fa fa-star"></i>
+	                                    <i class="fa fa-star-half-o"></i>
+	                                </div>
+	                                <div class="product-button">
+	                                	<a class="btn-add-wishlist" title="Add to Wishlist" href="#">Add Wishlist</a>
+	                                	<a class="btn-add-comparre" title="Add to Compare" href="#">Add Compare</a>
+	                                	<a class="button-radius btn-add-cart" title="Add to Cart" href="#">Buy<span class="icon"></span></a>
+	                                </div>
+								</div>
+							</div>
+						</div>
+					</li>';
+
+					$list2 .= '
+					<div class = "row">
+					<div class = "col-md-12 list2-product">
+					<li class="product">
+								<div class="product-container">
+									<div class="inner row">
+										<div class="product-left col-xs-12 col-sm-5 col-md-4">
+											<div class="product-thumb">
+												<a class="product-img" href="#"><img src="'.$value->cover_image.'" alt="'.$value->product_name.'"></a>
+												<a title="Quick View" href="#" class="btn-quick-view">Quick View</a>
+											</div>
+										</div>
+										<div class="product-right col-xs-12 col-sm-7 col-md-8">
+											<div class="product-name">
+												<a href="#">'.$value->product_name.'</a>
+											</div>
+											<div class="price-box">
+												<span class="product-price">Ksh. '.$value->price.'</span>
+											</div>
+											<div class="product-star">
+			                                    <i class="fa fa-star"></i>
+			                                    <i class="fa fa-star"></i>
+			                                    <i class="fa fa-star"></i>
+			                                    <i class="fa fa-star"></i>
+			                                    <i class="fa fa-star-half-o"></i>
+			                                </div>
+			                                <div class="desc">
+			                                '.$value->description.'
+			                                </div>
+			                                <div class="product-button">
+			                                	<a class="btn-add-wishlist" title="Add to Wishlist" href="#">Add Wishlist</a>
+			                                	<a class="btn-add-comparre" title="Add to Compare" href="#">Add Compare</a>
+			                                	<a class="button-radius btn-add-cart" title="Add to Cart" href="#">Buy<span class="icon"></span></a>
+			                                </div>
+										</div>
+									</div>
+								</div>
+							</li>
+							</div>
+							</div>
+					';
+				if($counter%2 === 0)
+				{
+					$list .= "</div>";
+				}
 			}
 		}
 		else
 		{
-			$list .= "<center><p style = 'font-weight: bold;'>Sorry, There are no products to display here</p></center>";
+			$list = $grid = $list2 = "<center><p style = 'font-weight: bold;'>Sorry, There are no products to display here</p></center>";
 		}
 
-		return $list;
+		switch ($listing_style) {
+			case 'list':
+				$returnable = $list;
+				break;
+			case 'grid':
+				$returnable = $grid;
+				break;
+			case 'list_one_column':
+				$returnable = $list2;
+				break;
+			default:
+				# code...
+				break;
+		}
+		if($type == "raw"){
+			return $returnable;
+		}else{
+			echo $returnable;
+		}
 	}
 
 	function brand($brand_id)
 	{}
+
+	function create_filter_sidebar($category_id)
+	{
+		$sidebar = "";
+
+		$categories = $this->products_model->get_parent_categories();
+		if ($categories) {
+			$parent_counter = 0;
+			foreach ($categories as $key => $value) {
+				$selected = "";
+				if($value['category_id'] == $category_id)
+				{
+					$selected = "checked = 'checked'";
+				}
+				$parent_counter++;
+				$count = $this->products_model->get_category_product_counts($value['category_id']);
+				$sidebar .= '<li>
+                            <input type="checkbox" id="category-'.$parent_counter.'" name="parent_category" value = "'.$value['category_id'].'" '.$selected.'>
+                            <label for="category-'.$parent_counter.'">
+                            <span class="button"></span>
+                            '.$value['category_name'].'<span class="count">('.$count.')</span>
+                            </label>';
+                $sub_categories = $this->products_model->get_sub_categories($value['category_id']);
+                $child_counter = 0;
+                if($sub_categories)
+                {
+                	$sidebar .= "<ul class = 'sub-category'>";
+                	foreach ($sub_categories as $k => $v) {
+                		$child_selected = "";
+                		if($v['category_id'] == $category_id)
+						{
+							$child_selected = "checked = 'checked'";
+						}
+                		$child_counter++;
+                		$count = $this->products_model->get_category_product_counts($v['category_id']);
+                		$sidebar .= '<li>
+                            <input type="checkbox" id="category-'.$parent_counter.'-'.$child_counter.'" name="child_category" value = "'.$v['category_id'].'" '.$child_selected.'>
+                            <label for="category-'.$parent_counter.'-'.$child_counter.'">
+                            <span class="button"></span>
+                            '.$v['category_name'].'<span class="count">('.$count.')</span>
+                            </label>';
+                	}
+                	$sidebar .= "</ul>";
+                }
+                $sidebar .= '</li>';
+			}
+		}
+
+		return $sidebar;
+	}
+
+	public function export($export_type, $identifier_type, $identifier)
+	{
+		$products = array();
+		$this->load->module('export');
+		switch ($identifier_type) {
+			case 'category':
+				$products = $this->products_model->get_products_by_category_customer($identifier);
+				break;
+			
+			case 'brand':
+				$products = $this->products_model->get_products_by_brand($identifier);
+			default:
+				# code...
+				break;
+		}
+
+		switch ($export_type) {
+			case 'pdf':
+				$this->export->create_pdf($products, $identifier);
+				break;
+			
+			case 'excel':
+				$this->export->create_excel($products, $identifier);
+				break;
+
+			default:
+				# code...
+				break;
+		}
+	}
 }
 ?>

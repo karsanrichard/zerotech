@@ -97,7 +97,7 @@ class User extends MY_Controller
 		if($user && $this->hash->passwordCheck($this->input->post('password'), $user->password))
 		{
 			$this->session->set_userdata([
-				'customer_id' => $user->id,
+				'customer_id' => $user->customer_id,
 				'is_logged_in' => TRUE
 			]);
 			if($user->user_type_id == 1)
@@ -115,6 +115,26 @@ class User extends MY_Controller
 		}
 	}
 
+	function auth()
+	{
+		$user = $this->M_user->get_active_user($this->input->post('email_address'));
+		if($user && $this->hash->passwordCheck($this->input->post('password'), $user->password))
+		{
+			$this->session->set_userdata([
+				'customer_id' => $user->user_id,
+				'is_logged_in' => TRUE
+			]);
+
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+		return false;
+	}
+	
 	function create_user_table()
 	{
 		$user_table = '';
