@@ -17,8 +17,8 @@ class Orders_model extends MY_Model
 		    o.total AS order_total,
 		    o.order_date,
 		    o.status,
-		    c.f_name AS first_name,
-		    c.s_name AS last_name,
+		    c.first_name AS first_name,
+		    c.last_name AS last_name,
 		    c.phone_no,
 		    c.physical_address,
 		    c.postal_address
@@ -41,8 +41,8 @@ class Orders_model extends MY_Model
 		SELECT 
 		    o.order_id AS order_id,
 		    o.customer_id AS customer_id,
-		    c.f_name AS first_name,
-		    c.s_name AS last_name,
+		    c.first_name AS first_name,
+		    c.last_name AS last_name,
 		    c.phone_no,
 		    c.physical_address,
 		    c.postal_address,
