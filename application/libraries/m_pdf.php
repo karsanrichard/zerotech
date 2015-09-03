@@ -9,7 +9,7 @@ class m_pdf {
  
     function load($param=NULL)
     {
-        include_once APPPATH.'/third_party/mpdf/mpdf.php';
+        include_once APPPATH.'/third_party/mpdf5/mpdf.php';
          
         if ($params == NULL)
         {

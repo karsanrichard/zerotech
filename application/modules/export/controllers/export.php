@@ -30,7 +30,7 @@ class Export extends MY_Controller
 		$time_string = date("l, jS F Y") . " at " . date("H:i:s");
 		$pdf->setHeader('Data exported on: ' . $time_string);
 		$pdf->setFooter('{PAGENO}');
-		$pdf->showImageErrors = true;
+		//$pdf->showImageErrors = true;
 		//generate the PDF!
 		$pdf->WriteHTML($html);
 		//offer it to user via browser download! (The PDF won't be saved on your server HDD)
