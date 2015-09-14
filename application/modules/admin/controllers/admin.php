@@ -20,6 +20,8 @@ class Admin extends MY_Controller{
     public function index(){
         $data['page_heading'] = 'Dashboard';
         $data['content_view'] = 'admin/dashboard';
+        $data['contact'] = $this->admin_model->get_all_contacts();
+        $data['line'] = $this->admin_model->line_contacts();
         $this->template->call_backend_template($data);
     }
 

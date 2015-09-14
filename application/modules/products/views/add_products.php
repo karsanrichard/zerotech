@@ -99,10 +99,13 @@
                                                 <label>Price *</label>
                                                 <input type="text" class="form-control required" name="price" id="price">
                                             </div>
-                                            <div class="form-group">
+                                            
                                                 <label>Description *</label>
-                                                <textarea type="text" class="form-control required" rows="10" name="description" id="description"></textarea>
-                                            </div>
+                                                <textarea name="description"></textarea>
+                                            
+                                            <script>
+                                                CKEDITOR.replace( 'description' );
+                                            </script>
                                         </div>
                                         <div class="col-lg-6">
                                            <div class = "image-holder" id = 'imagePreview' style=""></div>
