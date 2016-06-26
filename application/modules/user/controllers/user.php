@@ -100,14 +100,14 @@ class User extends MY_Controller
 			if($user->user_type_id == 1)
 			{
 				$this->session->set_userdata([
-					'user_id' => $user->user_id,
+					'user_id' => $user->id,
 					'is_logged_in' => TRUE
 				]);
 				redirect(base_url() . 'admin');
 			}
 			else if($user->user_type_id == 2){
 				$this->session->set_userdata([
-					'user_id' => $user->user_id,
+					'user_id' => $user->id,
 					'is_logged_in' => TRUE
 				]);
 				redirect(base_url() . 'home');
@@ -120,26 +120,6 @@ class User extends MY_Controller
 		}
 	}
 
-	function auth()
-	{
-		$user = $this->M_user->get_active_user($this->input->post('email_address'));
-		if($user && $this->hash->passwordCheck($this->input->post('password'), $user->password))
-		{
-			$this->session->set_userdata([
-				'customer_id' => $user->user_id,
-				'is_logged_in' => TRUE
-			]);
-
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-
-		return false;
-	}
-	
 	function create_user_table()
 	{
 		$user_table = '';
@@ -147,24 +127,27 @@ class User extends MY_Controller
 		// echo "<pre>";print_r($user_details);die();
 		$date = date('d');
 		// echo $date;
+		$delete_path = base_url().'user/delete';
+		$deactivate_path = base_url().'user/deactivate';
+		// echo "<pre>";print_r($user_details);die();
 		$status_column = '';
 		$confirmed_column = '';
 		if ($user_details) {
 			$number = 1;
 			foreach ($user_details as $user) {
 				if ($user->active == 1) {
-					$confirmed_column = '<td><span class = "label label-primary">Confirmed</span><a href = "#" style = "color: red;"><i class = "fa fa-times"></i></a></td>';
-					$action_column = '<td><button class="btn btn-warning">Deactivate Account</button></td>';
+					$confirmed_column = '<td><span class = "label label-primary">Confirmed</span></td>';
+					$action_column = '<td><a href="'.$deactivate_path.'/'.$user->customer_id.'"><button class="btn btn-warning">Deactivate Account</button></td>';
 				}
 				else
 				{
-					$confirmed_column = '<td><span class = "label label-danger">Not Confrimed</span><a href = "#" style = "color: green;"><i class = "fa fa-check"></i></a></td>';
-					$action_column = '<td><a href="<?php echo base_url();?>user/delete/'.$user->user_id.'"><button class="btn btn-danger">Delete Account</button></a></td>';
+					$confirmed_column = '<td><span class = "label label-danger">Not Confrimed</span></td>';
+					$action_column = '<td><a href="'.$delete_path.'/'.$user->customer_id.'"><button class="btn btn-danger">Delete Account</button></a></td>';
 				}
 				if ($user->status == 0){
-					$status_column = '<td><span class = "label label-primary">Active</span><a href = "#" style = "color: red;"><i class = "fa fa-times"></i></a></td>';
+					$status_column = '<td><span class = "label label-primary">Active</span></td>';
 				}else{
-					$status_column = '<td><span class = "label label-danger">Not Active</span><a href = "#" style = "color: green;"><i class = "fa fa-check"></i></a></td>';
+					$status_column = '<td><span class = "label label-danger">Not Active</span></td>';
 				}
 				$user_table .= "<tr>
 					<td>{$number}</td>
@@ -181,5 +164,21 @@ class User extends MY_Controller
 		}
 
 		return $user_table;
+	}
+
+	function delete($id)
+	{
+		$sql = "DELETE FROM `customer` WHERE `customer_id` = '$id'";
+		$this->db->query($sql);
+
+		redirect('admin/user');
+	}
+	function deactivate($id)
+	{
+
+		$sql = "UPDATE `users` SET STATUS = '1' WHERE `user_id` = '$id';";
+		$this->db->query($sql);
+
+		redirect('admin/user');
 	}
 }

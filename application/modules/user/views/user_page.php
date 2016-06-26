@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
 	<div class="col-lg-10">
-		<h2>Customer Contact Requests</h2>
+		<h2>Customers Listing</h2>
 		<ol class="breadcrumb">
 			<li>
 				<a href="<?php echo base_url(); ?>admin">Dashboard</a>

@@ -6,6 +6,13 @@
             margin: 0px; 
             border-radius: 0px;
       }
+      li {
+        display: inline;
+        padding: 6px;
+       }
+       li a {
+         background-color: #FFFF;
+       }
       </style>
       
        <div class="row wrapper border-bottom white-bg page-heading">

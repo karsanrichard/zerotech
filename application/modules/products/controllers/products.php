@@ -495,7 +495,7 @@ class Products extends MY_Controller
 	{
 		$pictures_array = array();
 		$ds = '/';
-		$store_folder = 'assets/product_images';
+		$store_folder = 'product_images';
 		if(!empty($_FILES))
 		{
 			foreach ($_FILES as $key => $value) {
@@ -516,7 +516,7 @@ class Products extends MY_Controller
 
 				$product_id = $_POST['product_id'];
 
-				$upload = $this->products_model->addimages(base_url() . $targetFile, $product_id);
+				$upload = $this->products_model->addimages(ASSETS_URL . $targetFile, $product_id);
 
 			}
 		}

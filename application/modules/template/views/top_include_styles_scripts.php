@@ -16,9 +16,12 @@
 <link href="<?php echo ASSETS_URL;?>backend/css/plugins/steps/jquery.steps.css" rel="stylesheet">
 
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.7/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src = "https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 <script type="text/javascript" src = "//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
 <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/min/dropzone.min.js"></script>
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+<script src="http://cdn.ckeditor.com/4.5.3/standard/ckeditor.js"></script>
 
